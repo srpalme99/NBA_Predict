@@ -102,7 +102,7 @@ nav{
 .track{height:3px;background:var(--bg3);border-radius:2px;overflow:hidden}
 .fill{height:100%;border-radius:2px;background:var(--blue)}
 
-/* INJURIES */
+/* INJURIES (legacy compact tags - kept for any other usage) */
 .injs{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
 .inj{
   font-size:10px;color:var(--text3);background:var(--bg3);
@@ -110,7 +110,6 @@ nav{
   display:flex;align-items:center;gap:4px;
 }
 .dot{width:4px;height:4px;border-radius:50%;background:var(--red);flex-shrink:0}
-.dot.star{background:var(--amber)}
 
 /* DROPDOWNS */
 .gc-dropdowns{display:flex;gap:6px;padding:0 14px 12px}
@@ -123,18 +122,35 @@ nav{
 .drop-btn.open .drop-arrow{transform:rotate(180deg)}
 .drop-panel{display:none;border-top:1px solid var(--border);padding:12px 14px}
 .drop-panel.open{display:block}
+
+/* INJURY LIST */
 .inj-list{display:flex;flex-direction:column;gap:5px}
 .inj-team-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--text3);margin-top:8px;margin-bottom:3px}
 .inj-team-label:first-child{margin-top:0}
 .inj-row{display:flex;align-items:center;justify-content:space-between}
 .inj-name{font-size:12px;color:var(--text);display:flex;align-items:center;gap:6px}
-.idot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
-.idot-out{background:var(--red)}.idot-star{background:var(--amber)}
+
+/* All dots are red now */
+.idot{width:5px;height:5px;border-radius:50%;flex-shrink:0;background:var(--red)}
+
+.inj-meta{display:flex;align-items:center;gap:6px}
+.inj-pis{
+  font-size:10px;font-family:var(--mono);
+  color:var(--text3);
+  padding:1px 5px;
+  border-radius:3px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--border);
+  white-space:nowrap;
+}
+.inj-pis.high{color:var(--amber)} /* highlight if PIS is notably high */
 .inj-status{font-size:10px;font-family:var(--mono);padding:1px 6px;border-radius:3px}
 .s-out{background:rgba(224,80,80,.1);color:var(--red)}
 .s-quest{background:rgba(232,160,48,.1);color:var(--amber)}
 .s-dtd{background:rgba(232,160,48,.08);color:var(--amber)}
 .no-inj{font-size:12px;color:var(--text3);font-style:italic}
+
+/* STATS PANEL */
 .stats-header{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-bottom:6px}
 .stats-col-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);text-align:center}
 .stats-col-lbl.left{text-align:left}
@@ -296,7 +312,7 @@ nav{
     <div class="how-card"><div class="how-num">01</div><div class="how-title">Rolling stats</div><div class="how-body">Every team's last 10 games are averaged across points, FG%, rebounds, assists, and turnovers. Current form beats season-long averages.</div></div>
     <div class="how-card"><div class="how-num">02</div><div class="how-title">Elo ratings</div><div class="how-body">Two parallel systems — full-season and 25-game rolling — are blended 50/50. Captures long-term quality and recent momentum in one number.</div></div>
     <div class="how-card"><div class="how-num">03</div><div class="how-title">Player Impact Score</div><div class="how-body">Players are scored using BPM, VORP, and WS/48 from Basketball Reference, then normalized into a single PIS per player.</div></div>
-    <div class="how-card"><div class="how-num">04</div><div class="how-title">Injury adjustment</div><div class="how-body">Injuries are scraped live from ESPN. Stars (top-3 PIS) are fully deducted; role players are partially deducted by their impact weight.</div></div>
+    <div class="how-card"><div class="how-num">04</div><div class="how-title">Injury adjustment</div><div class="how-body">Injuries are scraped live from ESPN. Each player's PIS is shown next to their name so you can judge how much their absence matters.</div></div>
     <div class="how-card"><div class="how-num">05</div><div class="how-title">Calibration</div><div class="how-body">Platt scaling converts raw model scores into calibrated probabilities. A 70% prediction should win around 70% of the time.</div></div>
     <div class="how-card"><div class="how-num">06</div><div class="how-title">Bias correction</div><div class="how-body">Training is balanced 50/50 so the model can't cheat by always picking home teams. The test set uses the real 59% home-win distribution.</div></div>
   </div>
@@ -338,16 +354,31 @@ function buildInjPanel(g) {
     { label: g.away_abbr + ' injuries', list: g.away_out },
   ];
   let html = '<div class="inj-list">', any = false;
+
   sides.forEach(side => {
     if (!side.list || !side.list.length) return;
     any = true;
     html += `<div class="inj-team-label">${side.label}</div>`;
     side.list.forEach(p => {
-      const dotCls = p.star ? 'idot idot-star' : 'idot idot-out';
-      const sCls   = p.status === 'Out' ? 's-out' : p.status === 'Doubtful' ? 's-quest' : 's-dtd';
-      html += `<div class="inj-row"><div class="inj-name"><span class="${dotCls}"></span>${p.name}</div><span class="inj-status ${sCls}">${p.status}</span></div>`;
+      // PIS display — all players get red dot, PIS shown next to name
+      const pis     = typeof p.pis === 'number' ? p.pis : null;
+      const pisText = pis !== null ? `PIS ${pis >= 0 ? '+' : ''}${pis.toFixed(2)}` : 'PIS —';
+      // Amber text on the PIS badge if it's notably high (above 1.0)
+      const pisCls  = (pis !== null && pis >= 1.0) ? 'inj-pis high' : 'inj-pis';
+      const sCls    = p.status === 'Out' ? 's-out' : p.status === 'Doubtful' ? 's-quest' : 's-dtd';
+
+      html += `
+        <div class="inj-row">
+          <div class="inj-name">
+            <span class="idot"></span>
+            ${p.name}
+            <span class="${pisCls}">${pisText}</span>
+          </div>
+          <span class="inj-status ${sCls}">${p.status}</span>
+        </div>`;
     });
   });
+
   if (!any) html += '<div class="no-inj">No reported injuries</div>';
   return html + '</div>';
 }
@@ -445,7 +476,6 @@ async function loadPredictions() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
 
-    // Update KPIs
     document.getElementById('kpi-games').textContent  = data.game_count ?? data.games.length;
     document.getElementById('kpi-strong').textContent = data.strong ?? '—';
     document.getElementById('nav-date').textContent   = data.date ?? '';
@@ -458,7 +488,6 @@ async function loadPredictions() {
     _cardIdx = 0;
     grid.innerHTML = data.games.map(buildCard).join('');
 
-    // Re-apply active filter
     if (currentFilter !== 'all') {
       document.querySelectorAll('.gc').forEach(card => {
         card.style.display = card.dataset.conf === currentFilter ? '' : 'none';
