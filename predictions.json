@@ -1,6 +1,6 @@
 {
   "date": "2026-04-04",
-  "generated": "2026-04-04T09:30:35",
+  "generated": "2026-04-04T09:51:02",
   "game_count": 3,
   "strong": 0,
   "games": [
@@ -40,6 +40,63 @@
           "name": "Kyshawn George",
           "status": "Out",
           "star": false
+        },
+        {
+          "name": "Anthony Davis",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "D'Angelo Russell",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Cam Whitmore",
+          "status": "Out",
+          "star": false
+        }
+      ],
+      "stats": [
+        {
+          "name": "Elo rating",
+          "home": "1455",
+          "away": "1487",
+          "rawHome": 1455.2,
+          "rawAway": 1486.7,
+          "higherBetter": true
+        },
+        {
+          "name": "Points / g",
+          "home": "119.6",
+          "away": "113.2",
+          "rawHome": 119.6,
+          "rawAway": 113.2,
+          "higherBetter": true
+        },
+        {
+          "name": "Rebounds / g",
+          "home": "41.6",
+          "away": "36.6",
+          "rawHome": 41.6,
+          "rawAway": 36.6,
+          "higherBetter": true
+        },
+        {
+          "name": "Turnovers / g",
+          "home": "10.9",
+          "away": "14.6",
+          "rawHome": 10.9,
+          "rawAway": 14.6,
+          "higherBetter": false
+        },
+        {
+          "name": "Assists / g",
+          "home": "27.8",
+          "away": "24.6",
+          "rawHome": 27.8,
+          "rawAway": 24.6,
+          "higherBetter": true
         }
       ]
     },
@@ -80,6 +137,48 @@
           "status": "Out",
           "star": false
         }
+      ],
+      "stats": [
+        {
+          "name": "Elo rating",
+          "home": "1514",
+          "away": "1493",
+          "rawHome": 1513.7,
+          "rawAway": 1493.5,
+          "higherBetter": true
+        },
+        {
+          "name": "Rebounds / g",
+          "home": "45.8",
+          "away": "50.6",
+          "rawHome": 45.8,
+          "rawAway": 50.6,
+          "higherBetter": true
+        },
+        {
+          "name": "Blocks / g",
+          "home": "3.2",
+          "away": "5.5",
+          "rawHome": 3.2,
+          "rawAway": 5.5,
+          "higherBetter": true
+        },
+        {
+          "name": "Points / g",
+          "home": "126.4",
+          "away": "124.6",
+          "rawHome": 126.4,
+          "rawAway": 124.6,
+          "higherBetter": true
+        },
+        {
+          "name": "Assists / g",
+          "home": "33.1",
+          "away": "32.1",
+          "rawHome": 33.1,
+          "rawAway": 32.1,
+          "higherBetter": true
+        }
       ]
     },
     {
@@ -108,6 +207,48 @@
           "name": "Cade Cunningham",
           "status": "Out",
           "star": false
+        }
+      ],
+      "stats": [
+        {
+          "name": "Elo rating",
+          "home": "1481",
+          "away": "1480",
+          "rawHome": 1480.7,
+          "rawAway": 1480.5,
+          "higherBetter": true
+        },
+        {
+          "name": "Points / g",
+          "home": "122.5",
+          "away": "119.2",
+          "rawHome": 122.5,
+          "rawAway": 119.2,
+          "higherBetter": true
+        },
+        {
+          "name": "Assists / g",
+          "home": "27.8",
+          "away": "31.0",
+          "rawHome": 27.8,
+          "rawAway": 31.0,
+          "higherBetter": true
+        },
+        {
+          "name": "Turnovers / g",
+          "home": "11.7",
+          "away": "14.2",
+          "rawHome": 11.7,
+          "rawAway": 14.2,
+          "higherBetter": false
+        },
+        {
+          "name": "Steals / g",
+          "home": "7.6",
+          "away": "9.9",
+          "rawHome": 7.6,
+          "rawAway": 9.9,
+          "higherBetter": true
         }
       ]
     }
