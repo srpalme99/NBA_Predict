@@ -1,112 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CourtIQ — NBA Predictions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0d0f12;--bg2:#13161b;--bg3:#1a1e26;--bg4:#21263100;
+  --bg:#0d0f12;--bg2:#13161b;--bg3:#1a1e26;
   --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.11);
   --text:#e8eaf0;--text2:#7a8299;--text3:#454d61;
   --blue:#4d8ef0;--green:#34c472;--amber:#e8a030;--red:#e05050;
+  --font:'Inter',system-ui,sans-serif;
   --mono:'IBM Plex Mono',monospace;
 }
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
-body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:14px;line-height:1.5}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.5;min-height:100vh}
 
-nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px;border-bottom:1px solid var(--border);background:var(--bg)}
+/* NAV */
+nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;height:52px;
+  border-bottom:1px solid var(--border);background:var(--bg);
+  position:sticky;top:0;z-index:100;
+}
 .logo{font-size:15px;font-weight:600;letter-spacing:.5px}
 .logo em{color:var(--blue);font-style:normal}
 .nav-tabs{display:flex}
-.ntab{padding:0 16px;height:52px;display:flex;align-items:center;font-size:13px;font-weight:400;color:var(--text2);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit}
+.ntab{
+  padding:0 16px;height:52px;display:flex;align-items:center;
+  font-size:13px;font-weight:400;color:var(--text2);cursor:pointer;
+  border-bottom:2px solid transparent;transition:all .15s;
+  background:none;border-top:none;border-left:none;border-right:none;
+  font-family:var(--font);
+}
 .ntab:hover{color:var(--text)}
 .ntab.active{color:var(--text);border-bottom-color:var(--blue)}
 .nav-right{font-size:12px;color:var(--text3);font-family:var(--mono)}
 
+/* PAGES */
 .page{display:none;max-width:1100px;margin:0 auto;padding:2rem 1.5rem}
 .page.active{display:block}
 
+/* KPI ROW */
 .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:2rem}
+@media(max-width:600px){.kpi-row{grid-template-columns:1fr 1fr}}
 .kpi{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1rem 1.1rem}
 .kpi-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.7px;color:var(--text3);margin-bottom:6px}
-.kpi-val{font-size:24px;font-weight:600;letter-spacing:-.5px;line-height:1;font-family:var(--mono)}
+.kpi-val{font-size:24px;font-weight:600;color:var(--text);letter-spacing:-.5px;line-height:1;font-family:var(--mono)}
 .kpi-val.blue{color:var(--blue)}.kpi-val.green{color:var(--green)}
 .kpi-sub{font-size:11px;color:var(--text3);margin-top:4px}
 
+/* ROW HEADER */
 .row-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
 .row-title{font-size:13px;font-weight:600;letter-spacing:.3px}
 .row-meta{font-size:11px;color:var(--text3)}
 
+/* FILTERS */
 .filters{display:flex;gap:6px;margin-bottom:1.25rem;flex-wrap:wrap}
-.fbtn{font-size:11px;font-weight:500;padding:5px 12px;border-radius:5px;border:1px solid var(--border2);background:transparent;color:var(--text2);cursor:pointer;transition:all .15s;font-family:inherit}
-.fbtn:hover{color:var(--text)}
+.fbtn{
+  font-size:11px;font-weight:500;padding:5px 12px;border-radius:5px;
+  border:1px solid var(--border2);background:transparent;
+  color:var(--text2);cursor:pointer;transition:all .15s;font-family:var(--font);
+}
+.fbtn:hover{color:var(--text);border-color:var(--border2)}
 .fbtn.on{background:var(--blue);border-color:var(--blue);color:#fff}
 
+/* GAMES GRID */
 .games{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:680px){.games{grid-template-columns:1fr}}
 
-.gc{background:var(--bg2);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:border-color .15s}
+/* GAME CARD */
+.gc{
+  background:var(--bg2);border:1px solid var(--border);border-radius:8px;
+  overflow:hidden;transition:border-color .15s;
+}
 .gc:hover{border-color:var(--border2)}
-.gc-head{padding:10px 14px 9px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.gc-head{
+  padding:10px 14px 9px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
 .gc-matchup{font-size:11px;font-weight:500;color:var(--text3);font-family:var(--mono);letter-spacing:.3px}
 .badge{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;letter-spacing:.4px;text-transform:uppercase}
 .b-strong{background:rgba(52,196,114,.1);color:var(--green)}
 .b-lean{background:rgba(77,142,240,.1);color:var(--blue)}
 .b-slight{background:rgba(232,160,48,.1);color:var(--amber)}
 .b-tossup{background:rgba(122,130,153,.1);color:var(--text2)}
-
 .gc-body{padding:12px 14px}
 .gc-teams{display:flex;align-items:center;gap:8px;margin-bottom:10px}
 .team{flex:1}
-.tname{font-size:15px;font-weight:600;letter-spacing:-.2px}
+.tname{font-size:15px;font-weight:600;letter-spacing:-.2px;color:var(--text)}
 .trole{font-size:10px;color:var(--text3);margin-top:1px;text-transform:uppercase;letter-spacing:.4px}
 .team.pick .tname{color:var(--blue)}
 .at{font-size:11px;color:var(--text3)}
 
-.probbar{margin-bottom:10px}
+/* PROB BAR */
+.probbar{margin-bottom:8px}
 .prob-nums{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px;font-family:var(--mono)}
 .pn-dim{color:var(--text3)}.pn-pick{color:var(--blue)}
 .track{height:3px;background:var(--bg3);border-radius:2px;overflow:hidden}
 .fill{height:100%;border-radius:2px;background:var(--blue)}
 
-/* DROPDOWN TOGGLES */
+/* INJURIES */
+.injs{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.inj{
+  font-size:10px;color:var(--text3);background:var(--bg3);
+  border:1px solid var(--border);border-radius:3px;padding:2px 6px;
+  display:flex;align-items:center;gap:4px;
+}
+.dot{width:4px;height:4px;border-radius:50%;background:var(--red);flex-shrink:0}
+.dot.star{background:var(--amber)}
+
+/* DROPDOWNS */
 .gc-dropdowns{display:flex;gap:6px;padding:0 14px 12px}
-.drop-btn{flex:1;display:flex;align-items:center;justify-content:space-between;padding:6px 10px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;cursor:pointer;font-size:11px;font-weight:500;color:var(--text2);transition:all .15s;font-family:inherit}
+.drop-btn{flex:1;display:flex;align-items:center;justify-content:space-between;padding:6px 10px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;cursor:pointer;font-size:11px;font-weight:500;color:var(--text2);transition:all .15s;font-family:var(--font)}
 .drop-btn:hover{border-color:var(--border2);color:var(--text)}
 .drop-btn.open{border-color:var(--border2);color:var(--text)}
 .drop-btn.inj-btn.open{color:var(--red)}
 .drop-btn.stats-btn.open{color:var(--blue)}
 .drop-arrow{font-size:9px;transition:transform .2s;display:inline-block}
 .drop-btn.open .drop-arrow{transform:rotate(180deg)}
-
-/* DROPDOWN PANELS */
 .drop-panel{display:none;border-top:1px solid var(--border);padding:12px 14px}
 .drop-panel.open{display:block}
-
-/* INJURY PANEL */
-.inj-list{display:flex;flex-direction:column;gap:6px}
-.inj-team-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--text3);margin-top:8px;margin-bottom:4px}
+.inj-list{display:flex;flex-direction:column;gap:5px}
+.inj-team-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--text3);margin-top:8px;margin-bottom:3px}
 .inj-team-label:first-child{margin-top:0}
 .inj-row{display:flex;align-items:center;justify-content:space-between}
 .inj-name{font-size:12px;color:var(--text);display:flex;align-items:center;gap:6px}
-.dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
-.dot-out{background:var(--red)}
-.dot-star{background:var(--amber)}
+.idot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.idot-out{background:var(--red)}.idot-star{background:var(--amber)}
 .inj-status{font-size:10px;font-family:var(--mono);padding:1px 6px;border-radius:3px}
 .s-out{background:rgba(224,80,80,.1);color:var(--red)}
 .s-quest{background:rgba(232,160,48,.1);color:var(--amber)}
+.s-dtd{background:rgba(232,160,48,.08);color:var(--amber)}
 .no-inj{font-size:12px;color:var(--text3);font-style:italic}
-
-/* STATS PANEL */
-.stats-header{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-bottom:8px}
-.stats-col-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);text-align:center}
-.stats-col-label.left{text-align:left}
+.stats-header{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-bottom:6px}
+.stats-col-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);text-align:center}
+.stats-col-lbl.left{text-align:left}
 .stat-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;align-items:center;padding:5px 0;border-bottom:1px solid var(--border)}
 .stat-row:last-child{border:none}
 .stat-name{font-size:11px;color:var(--text2)}
-.stat-val{font-size:12px;font-family:var(--mono);text-align:center;font-weight:500}
-.stat-val.better{color:var(--green)}
-.stat-val.worse{color:var(--red)}
-.stat-val.neutral{color:var(--text)}
-.stat-edge{font-size:10px;text-align:center;color:var(--text3);font-family:var(--mono)}
+.stat-val{font-size:12px;font-family:var(--mono);text-align:center;font-weight:500;color:var(--text)}
+.stat-val.better{color:var(--green)}.stat-val.worse{color:var(--red)}
+.no-stats{font-size:12px;color:var(--text3);font-style:italic}
 
-/* MODEL + HOW pages */
+/* EMPTY / LOADING */
+.state-msg{
+  text-align:center;padding:4rem 2rem;color:var(--text3);
+  font-size:13px;grid-column:1/-1;
+}
+.spinner{
+  width:20px;height:20px;border:2px solid var(--border2);
+  border-top-color:var(--blue);border-radius:50%;
+  animation:spin .7s linear infinite;margin:0 auto 1rem;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* MODEL PAGE */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:680px){.two-col{grid-template-columns:1fr}}
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.1rem 1.25rem}
 .card-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.7px;color:var(--text3);margin-bottom:1rem}
 .acc-big{font-size:42px;font-weight:600;color:var(--green);letter-spacing:-1px;line-height:1;margin-bottom:4px;font-family:var(--mono)}
@@ -127,12 +180,16 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem
 .ps:last-child{border:none}
 .ps-n{font-size:22px;font-weight:600;color:var(--blue);line-height:1;margin-bottom:3px;font-family:var(--mono)}
 .ps-l{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--text3)}
+
+/* HOW PAGE */
 .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1rem}
+@media(max-width:680px){.how-grid{grid-template-columns:1fr}}
 .how-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.1rem 1.25rem}
 .how-num{font-size:11px;font-weight:600;color:var(--blue);font-family:var(--mono);margin-bottom:8px}
 .how-title{font-size:13px;font-weight:600;margin-bottom:6px}
 .how-body{font-size:12px;color:var(--text2);line-height:1.65}
-.conf-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.conf-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:1rem}
+@media(max-width:680px){.conf-grid{grid-template-columns:1fr 1fr}}
 .conf-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1rem}
 .conf-pct{font-size:11px;font-weight:500;font-family:var(--mono);color:var(--text3);margin-bottom:4px}
 .conf-label{font-size:13px;font-weight:600;margin-bottom:6px}
@@ -140,6 +197,8 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem
 .conf-label.a{color:var(--amber)}.conf-label.t{color:var(--text2)}
 .conf-desc{font-size:11px;color:var(--text2);line-height:1.5}
 </style>
+</head>
+<body>
 
 <nav>
   <div class="logo">Court<em>IQ</em></div>
@@ -148,15 +207,32 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem
     <button class="ntab" onclick="showPage('model',this)">Model</button>
     <button class="ntab" onclick="showPage('how',this)">How it works</button>
   </div>
-  <div class="nav-right">Apr 3, 2026</div>
+  <div class="nav-right" id="nav-date">—</div>
 </nav>
 
+<!-- ── TONIGHT ─────────────────────────────────────────────────────────── -->
 <div id="tonight" class="page active">
   <div class="kpi-row">
-    <div class="kpi"><div class="kpi-label">Games tonight</div><div class="kpi-val blue">9</div><div class="kpi-sub">Across the league</div></div>
-    <div class="kpi"><div class="kpi-label">Strong picks</div><div class="kpi-val green">4</div><div class="kpi-sub">70%+ confidence</div></div>
-    <div class="kpi"><div class="kpi-label">Model accuracy</div><div class="kpi-val">~68%</div><div class="kpi-sub">Real distribution test</div></div>
-    <div class="kpi"><div class="kpi-label">Features</div><div class="kpi-val">35+</div><div class="kpi-sub">PIS · Elo · rolling stats</div></div>
+    <div class="kpi">
+      <div class="kpi-label">Games tonight</div>
+      <div class="kpi-val blue" id="kpi-games">—</div>
+      <div class="kpi-sub">Across the league</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Strong picks</div>
+      <div class="kpi-val green" id="kpi-strong">—</div>
+      <div class="kpi-sub">70%+ confidence</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Model accuracy</div>
+      <div class="kpi-val">~68%</div>
+      <div class="kpi-sub">Real distribution test</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Features</div>
+      <div class="kpi-val">35+</div>
+      <div class="kpi-sub">PIS · Elo · rolling stats</div>
+    </div>
   </div>
 
   <div class="row-header">
@@ -171,9 +247,15 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem
     <button class="fbtn" onclick="filterGames('slight',this)">Slight 55–60%</button>
   </div>
 
-  <div class="games" id="games-grid"></div>
+  <div class="games" id="games-grid">
+    <div class="state-msg">
+      <div class="spinner"></div>
+      Loading predictions…
+    </div>
+  </div>
 </div>
 
+<!-- ── MODEL ──────────────────────────────────────────────────────────── -->
 <div id="model" class="page">
   <div class="two-col">
     <div class="card">
@@ -208,6 +290,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem
   </div>
 </div>
 
+<!-- ── HOW IT WORKS ───────────────────────────────────────────────────── -->
 <div id="how" class="page">
   <div class="how-grid">
     <div class="how-card"><div class="how-num">01</div><div class="how-title">Rolling stats</div><div class="how-body">Every team's last 10 games are averaged across points, FG%, rebounds, assists, and turnovers. Current form beats season-long averages.</div></div>
@@ -226,194 +309,106 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0 2rem
 </div>
 
 <script>
-const GAMES = [
-  {
-    matchup:"IND @ CHA", away:"Indiana", home:"Charlotte", awayAbbr:"IND", homeAbbr:"CHA",
-    awayPct:29.3, homePct:70.7, conf:"strong", winnerIs:"home",
-    homeInj:[{name:"Tyrese Haliburton",status:"Out",star:true},{name:"Aaron Nesmith",status:"Out",star:false},{name:"Jarace Walker",status:"Out",star:false},{name:"Johnny Furphy",status:"Out",star:false}],
-    awayInj:[{name:"Jock Landale",status:"Out",star:false}],
-    stats:[
-      {name:"Elo rating", home:1487, away:1421, higherBetter:true},
-      {name:"PIS diff", home:"+2.1", away:"-2.1", higherBetter:true, rawHome:2.1, rawAway:-2.1},
-      {name:"Points / g", home:"114.2", away:"108.7", higherBetter:true, rawHome:114.2, rawAway:108.7},
-      {name:"Win % L20", home:".60", away:".35", higherBetter:true, rawHome:0.60, rawAway:0.35},
-      {name:"Off rating", home:"+4.2", away:"-1.8", higherBetter:true, rawHome:4.2, rawAway:-1.8},
-    ]
-  },
-  {
-    matchup:"CHI @ NYK", away:"Chicago", home:"New York", awayAbbr:"CHI", homeAbbr:"NYK",
-    awayPct:24.2, homePct:75.8, conf:"strong", winnerIs:"home",
-    homeInj:[{name:"Karl-Anthony Towns",status:"Out",star:true}],
-    awayInj:[{name:"Anfernee Simons",status:"Out",star:true},{name:"Nick Richards",status:"Out",star:false},{name:"Jalen Smith",status:"Out",star:false},{name:"Zach Collins",status:"Out",star:false}],
-    stats:[
-      {name:"Elo rating", home:1561, away:1398, higherBetter:true, rawHome:1561, rawAway:1398},
-      {name:"PIS diff", home:"+3.8", away:"-3.8", higherBetter:true, rawHome:3.8, rawAway:-3.8},
-      {name:"Points / g", home:"118.4", away:"109.1", higherBetter:true, rawHome:118.4, rawAway:109.1},
-      {name:"Win % L20", home:".70", away:".30", higherBetter:true, rawHome:0.70, rawAway:0.30},
-      {name:"Def rating", home:"-3.1", away:"+2.4", higherBetter:false, rawHome:-3.1, rawAway:2.4},
-    ]
-  },
-  {
-    matchup:"UTA @ HOU", away:"Utah", home:"Houston", awayAbbr:"UTA", homeAbbr:"HOU",
-    awayPct:24.1, homePct:75.9, conf:"strong", winnerIs:"home",
-    homeInj:[{name:"Steven Adams",status:"Out",star:false},{name:"Fred VanVleet",status:"Out",star:false}],
-    awayInj:[{name:"Lauri Markkanen",status:"Out",star:true},{name:"Keyonte George",status:"Out",star:false},{name:"Isaiah Collier",status:"Out",star:false},{name:"Jusuf Nurkic",status:"Out",star:false}],
-    stats:[
-      {name:"Elo rating", home:1548, away:1372, higherBetter:true, rawHome:1548, rawAway:1372},
-      {name:"PIS diff", home:"+4.1", away:"-4.1", higherBetter:true, rawHome:4.1, rawAway:-4.1},
-      {name:"Points / g", home:"116.8", away:"106.2", higherBetter:true, rawHome:116.8, rawAway:106.2},
-      {name:"Win % L20", home:".75", away:".25", higherBetter:true, rawHome:0.75, rawAway:0.25},
-      {name:"Rebounds / g", home:"45.2", away:"40.8", higherBetter:true, rawHome:45.2, rawAway:40.8},
-    ]
-  },
-  {
-    matchup:"BOS @ MIL", away:"Boston", home:"Milwaukee", awayAbbr:"BOS", homeAbbr:"MIL",
-    awayPct:73.0, homePct:27.0, conf:"strong", winnerIs:"away",
-    homeInj:[{name:"Giannis Antetokounmpo",status:"Out",star:true},{name:"Gary Trent Jr.",status:"Out",star:false},{name:"Bobby Portis",status:"Out",star:false},{name:"Kevin Porter Jr.",status:"Out",star:false}],
-    awayInj:[{name:"Nikola Vucevic",status:"Out",star:false}],
-    stats:[
-      {name:"Elo rating", home:1441, away:1589, higherBetter:true, rawHome:1441, rawAway:1589},
-      {name:"PIS diff", home:"-5.2", away:"+5.2", higherBetter:true, rawHome:-5.2, rawAway:5.2},
-      {name:"Points / g", home:"109.3", away:"121.7", higherBetter:true, rawHome:109.3, rawAway:121.7},
-      {name:"Win % L20", home:".35", away:".80", higherBetter:true, rawHome:0.35, rawAway:0.80},
-      {name:"Off rating", home:"-1.4", away:"+6.8", higherBetter:true, rawHome:-1.4, rawAway:6.8},
-    ]
-  },
-  {
-    matchup:"TOR @ MEM", away:"Toronto", home:"Memphis", awayAbbr:"TOR", homeAbbr:"MEM",
-    awayPct:63.5, homePct:36.5, conf:"lean", winnerIs:"away",
-    homeInj:[{name:"Ja Morant",status:"Out",star:true},{name:"Ty Jerome",status:"Out",star:false},{name:"Cam Spencer",status:"Out",star:false},{name:"Jaylen Wells",status:"Out",star:false}],
-    awayInj:[{name:"Immanuel Quickley",status:"Out",star:true},{name:"Chucky Hepburn",status:"Out",star:false}],
-    stats:[
-      {name:"Elo rating", home:1388, away:1472, higherBetter:true, rawHome:1388, rawAway:1472},
-      {name:"PIS diff", home:"-3.1", away:"+3.1", higherBetter:true, rawHome:-3.1, rawAway:3.1},
-      {name:"Points / g", home:"107.4", away:"112.9", higherBetter:true, rawHome:107.4, rawAway:112.9},
-      {name:"Win % L20", home:".30", away:".55", higherBetter:true, rawHome:0.30, rawAway:0.55},
-      {name:"Turnovers / g", home:"15.8", away:"13.2", higherBetter:false, rawHome:15.8, rawAway:13.2},
-    ]
-  },
-  {
-    matchup:"ATL @ BKN", away:"Atlanta", home:"Brooklyn", awayAbbr:"ATL", homeAbbr:"BKN",
-    awayPct:69.0, homePct:31.0, conf:"lean", winnerIs:"away",
-    homeInj:[{name:"Michael Porter Jr.",status:"Out",star:true},{name:"Danny Wolf",status:"Out",star:false},{name:"Day'Ron Sharpe",status:"Out",star:false}],
-    awayInj:[{name:"Jock Landale",status:"Out",star:false}],
-    stats:[
-      {name:"Elo rating", home:1354, away:1498, higherBetter:true, rawHome:1354, rawAway:1498},
-      {name:"PIS diff", home:"-2.8", away:"+2.8", higherBetter:true, rawHome:-2.8, rawAway:2.8},
-      {name:"Points / g", home:"105.1", away:"116.3", higherBetter:true, rawHome:105.1, rawAway:116.3},
-      {name:"Win % L20", home:".25", away:".60", higherBetter:true, rawHome:0.25, rawAway:0.60},
-      {name:"Assists / g", home:"22.4", away:"27.8", higherBetter:true, rawHome:22.4, rawAway:27.8},
-    ]
-  },
-  {
-    matchup:"MIN @ PHI", away:"Minnesota", home:"Philadelphia", awayAbbr:"MIN", homeAbbr:"PHI",
-    awayPct:44.3, homePct:55.7, conf:"slight", winnerIs:"home",
-    homeInj:[{name:"Johni Broome",status:"Out",star:false}],
-    awayInj:[{name:"Jaden McDaniels",status:"Out",star:false}],
-    stats:[
-      {name:"Elo rating", home:1508, away:1492, higherBetter:true, rawHome:1508, rawAway:1492},
-      {name:"PIS diff", home:"+0.8", away:"-0.8", higherBetter:true, rawHome:0.8, rawAway:-0.8},
-      {name:"Points / g", home:"113.2", away:"111.8", higherBetter:true, rawHome:113.2, rawAway:111.8},
-      {name:"Win % L20", home:".52", away:".48", higherBetter:true, rawHome:0.52, rawAway:0.48},
-      {name:"Rebounds / g", home:"43.8", away:"46.1", higherBetter:true, rawHome:43.8, rawAway:46.1},
-    ]
-  },
-  {
-    matchup:"ORL @ DAL", away:"Orlando", home:"Dallas", awayAbbr:"ORL", homeAbbr:"DAL",
-    awayPct:56.7, homePct:43.3, conf:"slight", winnerIs:"away",
-    homeInj:[{name:"Kyrie Irving",status:"Out",star:true},{name:"Caleb Martin",status:"Out",star:false},{name:"P.J. Washington",status:"Out",star:false}],
-    awayInj:[{name:"Jonathan Isaac",status:"Out",star:false},{name:"Anthony Black",status:"Out",star:false}],
-    stats:[
-      {name:"Elo rating", home:1462, away:1489, higherBetter:true, rawHome:1462, rawAway:1489},
-      {name:"PIS diff", home:"-1.3", away:"+1.3", higherBetter:true, rawHome:-1.3, rawAway:1.3},
-      {name:"Points / g", home:"110.4", away:"112.1", higherBetter:true, rawHome:110.4, rawAway:112.1},
-      {name:"Win % L20", home:".45", away:".55", higherBetter:true, rawHome:0.45, rawAway:0.55},
-      {name:"Def rating", home:"+1.2", away:"-2.1", higherBetter:false, rawHome:1.2, rawAway:-2.1},
-    ]
-  },
-  {
-    matchup:"NOP @ SAC", away:"New Orleans", home:"Sacramento", awayAbbr:"NOP", homeAbbr:"SAC",
-    awayPct:56.8, homePct:43.2, conf:"slight", winnerIs:"away",
-    homeInj:[{name:"Malik Monk",status:"Out",star:true},{name:"Keegan Murray",status:"Out",star:false},{name:"Domantas Sabonis",status:"Out",star:false},{name:"Zach LaVine",status:"Out",star:false}],
-    awayInj:[{name:"Dejounte Murray",status:"Out",star:true},{name:"Bryce McGowens",status:"Out",star:false}],
-    stats:[
-      {name:"Elo rating", home:1431, away:1468, higherBetter:true, rawHome:1431, rawAway:1468},
-      {name:"PIS diff", home:"-1.9", away:"+1.9", higherBetter:true, rawHome:-1.9, rawAway:1.9},
-      {name:"Points / g", home:"109.7", away:"112.4", higherBetter:true, rawHome:109.7, rawAway:112.4},
-      {name:"Win % L20", home:".40", away:".50", higherBetter:true, rawHome:0.40, rawAway:0.50},
-      {name:"Turnovers / g", home:"14.9", away:"13.1", higherBetter:false, rawHome:14.9, rawAway:13.1},
-    ]
-  },
-];
+// ── Nav ─────────────────────────────────────────────────────────────────────
+function showPage(id, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.ntab').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
 
+// ── Filters ──────────────────────────────────────────────────────────────────
+let currentFilter = 'all';
+function filterGames(type, btn) {
+  currentFilter = type;
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.gc').forEach(card => {
+    card.style.display = (type === 'all' || card.dataset.conf === type) ? '' : 'none';
+  });
+}
+
+// ── Card helpers ──────────────────────────────────────────────────────────────
 function badgeClass(c){return{strong:'b-strong',lean:'b-lean',slight:'b-slight',tossup:'b-tossup'}[c]||'b-tossup'}
 function badgeLabel(c){return{strong:'Strong',lean:'Lean',slight:'Slight',tossup:'Toss-up'}[c]||c}
 
-function injPanel(g){
-  let html = '<div class="inj-list">';
-  const sides=[{label:g.homeAbbr+' injuries',list:g.homeInj},{label:g.awayAbbr+' injuries',list:g.awayInj}];
-  let anyInj=false;
-  sides.forEach(side=>{
-    if(!side.list||!side.list.length) return;
-    anyInj=true;
-    html+=`<div class="inj-team-label">${side.label}</div>`;
-    side.list.forEach(p=>{
-      const dotCls=p.star?'dot dot-star':'dot dot-out';
-      const sCls=p.status==='Out'?'s-out':'s-quest';
-      html+=`<div class="inj-row"><div class="inj-name"><span class="${dotCls}"></span>${p.name}</div><span class="inj-status ${sCls}">${p.status}</span></div>`;
+function buildInjPanel(g) {
+  const sides = [
+    { label: g.home_abbr + ' injuries', list: g.home_out },
+    { label: g.away_abbr + ' injuries', list: g.away_out },
+  ];
+  let html = '<div class="inj-list">', any = false;
+  sides.forEach(side => {
+    if (!side.list || !side.list.length) return;
+    any = true;
+    html += `<div class="inj-team-label">${side.label}</div>`;
+    side.list.forEach(p => {
+      const dotCls = p.star ? 'idot idot-star' : 'idot idot-out';
+      const sCls   = p.status === 'Out' ? 's-out' : p.status === 'Doubtful' ? 's-quest' : 's-dtd';
+      html += `<div class="inj-row"><div class="inj-name"><span class="${dotCls}"></span>${p.name}</div><span class="inj-status ${sCls}">${p.status}</span></div>`;
     });
   });
-  if(!anyInj) html+='<div class="no-inj">No reported injuries</div>';
-  html+='</div>';
-  return html;
+  if (!any) html += '<div class="no-inj">No reported injuries</div>';
+  return html + '</div>';
 }
 
-function statsPanel(g){
-  const hLabel=g.homeAbbr, aLabel=g.awayAbbr;
-  let html=`<div class="stats-header"><div class="stats-col-label left">Stat</div><div class="stats-col-label">${aLabel}</div><div class="stats-col-label">${hLabel}</div></div>`;
-  g.stats.forEach(s=>{
-    const rawH = typeof s.rawHome==='number'?s.rawHome:parseFloat(s.home);
-    const rawA = typeof s.rawAway==='number'?s.rawAway:parseFloat(s.away);
-    let hCls='neutral', aCls='neutral';
-    if(!isNaN(rawH)&&!isNaN(rawA)){
-      const hBetter = s.higherBetter ? rawH>rawA : rawH<rawA;
-      const aBetter = s.higherBetter ? rawA>rawH : rawA<rawH;
-      if(hBetter){hCls='better';aCls='worse';}
-      else if(aBetter){aCls='better';hCls='worse';}
+function buildStatsPanel(g) {
+  if (!g.stats || !g.stats.length) {
+    return '<div class="no-stats">Stats not available — re-run predict_tonight.py to populate.</div>';
+  }
+  let html = `<div class="stats-header">
+    <div class="stats-col-lbl left">Stat</div>
+    <div class="stats-col-lbl">${g.away_abbr}</div>
+    <div class="stats-col-lbl">${g.home_abbr}</div>
+  </div>`;
+  g.stats.forEach(s => {
+    const rh = typeof s.rawHome === 'number' ? s.rawHome : parseFloat(s.home);
+    const ra = typeof s.rawAway === 'number' ? s.rawAway : parseFloat(s.away);
+    let hCls = '', aCls = '';
+    if (!isNaN(rh) && !isNaN(ra) && rh !== ra) {
+      const hWins = s.higherBetter ? rh > ra : rh < ra;
+      hCls = hWins ? 'better' : 'worse';
+      aCls = hWins ? 'worse'  : 'better';
     }
-    const hVal = typeof s.home==='number'?s.home:s.home;
-    const aVal = typeof s.away==='number'?s.away:s.away;
-    html+=`<div class="stat-row"><div class="stat-name">${s.name}</div><div class="stat-val ${aCls}">${aVal}</div><div class="stat-val ${hCls}">${hVal}</div></div>`;
+    html += `<div class="stat-row">
+      <div class="stat-name">${s.name}</div>
+      <div class="stat-val ${aCls}">${s.away ?? '—'}</div>
+      <div class="stat-val ${hCls}">${s.home ?? '—'}</div>
+    </div>`;
   });
   return html;
 }
 
-function buildCard(g,idx){
-  const homeWins=g.winnerIs==='home';
-  const homeClass=homeWins?'team pick':'team';
-  const awayClass=!homeWins?'team pick':'team';
-  const homeRole=homeWins?'Home · Pick':'Home';
-  const awayRole=!homeWins?'Away · Pick':'Away';
-  const lNum=`${g.awayAbbr} ${g.awayPct.toFixed(1)}%`;
-  const rNum=`${g.homeAbbr} ${g.homePct.toFixed(1)}%`;
-  const lCls=!homeWins?'pn-pick':'pn-dim';
-  const rCls=homeWins?'pn-pick':'pn-dim';
-  const fillW=Math.max(g.homePct,g.awayPct).toFixed(1);
-  const totalInj=(g.homeInj?.length||0)+(g.awayInj?.length||0);
+let _cardIdx = 0;
+function buildCard(g) {
+  const idx      = _cardIdx++;
+  const homeWins = g.winner_is === 'home';
+  const fillW    = Math.max(g.home_pct, g.away_pct).toFixed(1);
+  const homeClass = homeWins ? 'team pick' : 'team';
+  const awayClass = !homeWins ? 'team pick' : 'team';
+  const homeRole  = homeWins ? 'Home · Pick' : 'Home';
+  const awayRole  = !homeWins ? 'Away · Pick' : 'Away';
+  const lCls = !homeWins ? 'pn-pick' : 'pn-dim';
+  const rCls =  homeWins ? 'pn-pick' : 'pn-dim';
+  const totalInj = (g.home_out?.length || 0) + (g.away_out?.length || 0);
+
   return `
-<div class="gc" data-conf="${g.conf}">
+<div class="gc" data-conf="${g.confidence}">
   <div class="gc-head">
     <span class="gc-matchup">${g.matchup}</span>
-    <span class="badge ${badgeClass(g.conf)}">${badgeLabel(g.conf)}</span>
+    <span class="badge ${badgeClass(g.confidence)}">${badgeLabel(g.confidence)}</span>
   </div>
   <div class="gc-body">
     <div class="gc-teams">
-      <div class="${awayClass}"><div class="tname">${g.away}</div><div class="trole">${awayRole}</div></div>
+      <div class="${awayClass}"><div class="tname">${g.away_abbr}</div><div class="trole">${awayRole}</div></div>
       <div class="at">@</div>
-      <div class="${homeClass}"><div class="tname">${g.home}</div><div class="trole">${homeRole}</div></div>
+      <div class="${homeClass}"><div class="tname">${g.home_abbr}</div><div class="trole">${homeRole}</div></div>
     </div>
     <div class="probbar">
-      <div class="prob-nums"><span class="${lCls}">${lNum}</span><span class="${rCls}">${rNum}</span></div>
+      <div class="prob-nums">
+        <span class="${lCls}">${g.away_abbr} ${g.away_pct.toFixed(1)}%</span>
+        <span class="${rCls}">${g.home_abbr} ${g.home_pct.toFixed(1)}%</span>
+      </div>
       <div class="track"><div class="fill" style="width:${fillW}%"></div></div>
     </div>
   </div>
@@ -425,40 +420,64 @@ function buildCard(g,idx){
       <span>Key stats</span><span class="drop-arrow">&#9660;</span>
     </button>
   </div>
-  <div class="drop-panel" id="drop-inj-${idx}">${injPanel(g)}</div>
-  <div class="drop-panel" id="drop-stats-${idx}">${statsPanel(g)}</div>
+  <div class="drop-panel" id="dp-inj-${idx}">${buildInjPanel(g)}</div>
+  <div class="drop-panel" id="dp-stats-${idx}">${buildStatsPanel(g)}</div>
 </div>`;
 }
 
-function toggleDrop(idx,type,btn){
-  const panel=document.getElementById(`drop-${type}-${idx}`);
-  const otherType=type==='inj'?'stats':'inj';
-  const otherPanel=document.getElementById(`drop-${otherType}-${idx}`);
-  const otherBtn=btn.parentElement.querySelector(`.${otherType}-btn`);
-  const isOpen=panel.classList.contains('open');
-  if(otherPanel.classList.contains('open')){
-    otherPanel.classList.remove('open');
-    otherBtn.classList.remove('open');
+function toggleDrop(idx, type, btn) {
+  const panel = document.getElementById(`dp-${type}-${idx}`);
+  const other  = type === 'inj' ? 'stats' : 'inj';
+  const oPanel = document.getElementById(`dp-${other}-${idx}`);
+  const oBtn   = btn.parentElement.querySelector(`.${other}-btn`);
+  const isOpen = panel.classList.contains('open');
+  if (oPanel.classList.contains('open')) { oPanel.classList.remove('open'); oBtn.classList.remove('open'); }
+  panel.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+}
+
+// ── Load predictions.json ─────────────────────────────────────────────────────
+async function loadPredictions() {
+  const grid = document.getElementById('games-grid');
+
+  try {
+    const res  = await fetch('./predictions.json?v=' + Date.now());
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+
+    // Update KPIs
+    document.getElementById('kpi-games').textContent  = data.game_count ?? data.games.length;
+    document.getElementById('kpi-strong').textContent = data.strong ?? '—';
+    document.getElementById('nav-date').textContent   = data.date ?? '';
+
+    if (!data.games || data.games.length === 0) {
+      grid.innerHTML = '<div class="state-msg">No games scheduled today.</div>';
+      return;
+    }
+
+    _cardIdx = 0;
+    grid.innerHTML = data.games.map(buildCard).join('');
+
+    // Re-apply active filter
+    if (currentFilter !== 'all') {
+      document.querySelectorAll('.gc').forEach(card => {
+        card.style.display = card.dataset.conf === currentFilter ? '' : 'none';
+      });
+    }
+
+  } catch (err) {
+    grid.innerHTML = `
+      <div class="state-msg">
+        Could not load predictions.json.<br>
+        <span style="font-size:11px;font-family:var(--mono);margin-top:8px;display:block">${err.message}</span><br>
+        Run <code style="font-family:var(--mono);color:var(--blue)">predict_tonight.py</code> then
+        <code style="font-family:var(--mono);color:var(--blue)">export_predictions_json.py</code>
+        and copy <code style="font-family:var(--mono)">predictions.json</code> to this folder.
+      </div>`;
   }
-  panel.classList.toggle('open',!isOpen);
-  btn.classList.toggle('open',!isOpen);
 }
 
-function showPage(id,btn){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.ntab').forEach(b=>b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  btn.classList.add('active');
-}
-
-function filterGames(type,btn){
-  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));
-  btn.classList.add('on');
-  document.querySelectorAll('.gc').forEach(c=>{
-    c.style.display=(type==='all'||c.dataset.conf===type)?'':'none';
-  });
-}
-
-const grid=document.getElementById('games-grid');
-grid.innerHTML=GAMES.map((g,i)=>buildCard(g,i)).join('');
+loadPredictions();
 </script>
+</body>
+</html>
