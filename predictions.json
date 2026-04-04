@@ -1,46 +1,96 @@
 {
-  "date": "2026-04-03",
-  "generated": "2026-04-03T23:23:29",
-  "game_count": 9,
-  "strong": 5,
+  "date": "2026-04-04",
+  "generated": "2026-04-04T09:30:35",
+  "game_count": 3,
+  "strong": 0,
   "games": [
     {
-      "matchup": "IND @ CHA",
-      "home_abbr": "CHA",
-      "away_abbr": "IND",
-      "home_pct": 70.7,
-      "away_pct": 29.3,
-      "pick": "Charlotte Hornets",
+      "matchup": "WAS @ MIA",
+      "home_abbr": "MIA",
+      "away_abbr": "WAS",
+      "home_pct": 68.4,
+      "away_pct": 31.6,
+      "pick": "Miami Heat",
       "winner_is": "home",
-      "confidence": "strong",
-      "home_out": [],
-      "away_out": [
+      "confidence": "lean",
+      "home_out": [
         {
-          "name": "Jarace Walker",
+          "name": "Norman Powell",
           "status": "Out",
           "star": true
         },
         {
-          "name": "Aaron Nesmith",
+          "name": "Terry Rozier",
+          "status": "Out",
+          "star": false
+        }
+      ],
+      "away_out": [
+        {
+          "name": "Trae Young",
+          "status": "Out",
+          "star": true
+        },
+        {
+          "name": "Alex Sarr",
           "status": "Out",
           "star": false
         },
         {
-          "name": "Ivica Zubac",
+          "name": "Kyshawn George",
           "status": "Out",
           "star": false
         }
       ]
     },
     {
-      "matchup": "MIN @ PHI",
+      "matchup": "SAS @ DEN",
+      "home_abbr": "DEN",
+      "away_abbr": "SAS",
+      "home_pct": 45.7,
+      "away_pct": 54.3,
+      "pick": "San Antonio Spurs",
+      "winner_is": "away",
+      "confidence": "tossup",
+      "home_out": [
+        {
+          "name": "Zeke Nnaji",
+          "status": "Out",
+          "star": true
+        },
+        {
+          "name": "Spencer Jones",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Peyton Watson",
+          "status": "Out",
+          "star": false
+        }
+      ],
+      "away_out": [
+        {
+          "name": "Emanuel Miller",
+          "status": "Out",
+          "star": true
+        },
+        {
+          "name": "David Jones Garcia",
+          "status": "Out",
+          "star": false
+        }
+      ]
+    },
+    {
+      "matchup": "DET @ PHI",
       "home_abbr": "PHI",
-      "away_abbr": "MIN",
-      "home_pct": 55.7,
-      "away_pct": 44.3,
-      "pick": "Philadelphia 76ers",
-      "winner_is": "home",
-      "confidence": "slight",
+      "away_abbr": "DET",
+      "home_pct": 33.3,
+      "away_pct": 66.7,
+      "pick": "Detroit Pistons",
+      "winner_is": "away",
+      "confidence": "lean",
       "home_out": [
         {
           "name": "Johni Broome",
@@ -50,264 +100,12 @@
       ],
       "away_out": [
         {
-          "name": "Jaden McDaniels",
-          "status": "Out",
-          "star": true
-        }
-      ]
-    },
-    {
-      "matchup": "ATL @ BKN",
-      "home_abbr": "BKN",
-      "away_abbr": "ATL",
-      "home_pct": 29.7,
-      "away_pct": 70.3,
-      "pick": "Atlanta Hawks",
-      "winner_is": "away",
-      "confidence": "strong",
-      "home_out": [
-        {
-          "name": "Michael Porter Jr.",
+          "name": "Isaiah Stewart",
           "status": "Out",
           "star": true
         },
         {
-          "name": "Danny Wolf",
-          "status": "Out",
-          "star": false
-        },
-        {
-          "name": "Egor Demin",
-          "status": "Out",
-          "star": false
-        }
-      ],
-      "away_out": [
-        {
-          "name": "Jock Landale",
-          "status": "Out",
-          "star": true
-        }
-      ]
-    },
-    {
-      "matchup": "CHI @ NYK",
-      "home_abbr": "NYK",
-      "away_abbr": "CHI",
-      "home_pct": 77.7,
-      "away_pct": 22.3,
-      "pick": "New York Knicks",
-      "winner_is": "home",
-      "confidence": "strong",
-      "home_out": [],
-      "away_out": [
-        {
-          "name": "Nick Richards",
-          "status": "Out",
-          "star": true
-        },
-        {
-          "name": "Anfernee Simons",
-          "status": "Out",
-          "star": false
-        },
-        {
-          "name": "Jalen Smith",
-          "status": "Out",
-          "star": false
-        }
-      ]
-    },
-    {
-      "matchup": "UTA @ HOU",
-      "home_abbr": "HOU",
-      "away_abbr": "UTA",
-      "home_pct": 76.7,
-      "away_pct": 23.3,
-      "pick": "Houston Rockets",
-      "winner_is": "home",
-      "confidence": "strong",
-      "home_out": [
-        {
-          "name": "Steven Adams",
-          "status": "Out",
-          "star": true
-        },
-        {
-          "name": "Fred VanVleet",
-          "status": "Out",
-          "star": false
-        }
-      ],
-      "away_out": [
-        {
-          "name": "Keyonte George",
-          "status": "Out",
-          "star": true
-        },
-        {
-          "name": "Isaiah Collier",
-          "status": "Out",
-          "star": false
-        },
-        {
-          "name": "Elijah Harkless",
-          "status": "Out",
-          "star": false
-        }
-      ]
-    },
-    {
-      "matchup": "TOR @ MEM",
-      "home_abbr": "MEM",
-      "away_abbr": "TOR",
-      "home_pct": 35.0,
-      "away_pct": 65.0,
-      "pick": "Toronto Raptors",
-      "winner_is": "away",
-      "confidence": "lean",
-      "home_out": [
-        {
-          "name": "Taj Gibson",
-          "status": "Out",
-          "star": true
-        },
-        {
-          "name": "Ty Jerome",
-          "status": "Out",
-          "star": false
-        },
-        {
-          "name": "Jaylen Wells",
-          "status": "Out",
-          "star": false
-        }
-      ],
-      "away_out": [
-        {
-          "name": "Chucky Hepburn",
-          "status": "Out",
-          "star": true
-        },
-        {
-          "name": "Immanuel Quickley",
-          "status": "Out",
-          "star": false
-        }
-      ]
-    },
-    {
-      "matchup": "BOS @ MIL",
-      "home_abbr": "MIL",
-      "away_abbr": "BOS",
-      "home_pct": 26.5,
-      "away_pct": 73.5,
-      "pick": "Boston Celtics",
-      "winner_is": "away",
-      "confidence": "strong",
-      "home_out": [
-        {
-          "name": "Bobby Portis",
-          "status": "Out",
-          "star": true
-        },
-        {
-          "name": "Giannis Antetokounmpo",
-          "status": "Out",
-          "star": false
-        },
-        {
-          "name": "Kevin Porter Jr.",
-          "status": "Out",
-          "star": false
-        }
-      ],
-      "away_out": [
-        {
-          "name": "Nikola Vucevic",
-          "status": "Out",
-          "star": true
-        }
-      ]
-    },
-    {
-      "matchup": "ORL @ DAL",
-      "home_abbr": "DAL",
-      "away_abbr": "ORL",
-      "home_pct": 43.1,
-      "away_pct": 56.9,
-      "pick": "Orlando Magic",
-      "winner_is": "away",
-      "confidence": "slight",
-      "home_out": [
-        {
-          "name": "Marvin Bagley III",
-          "status": "Out",
-          "star": true
-        },
-        {
-          "name": "Caleb Martin",
-          "status": "Out",
-          "star": false
-        },
-        {
-          "name": "P.J. Washington",
-          "status": "Out",
-          "star": false
-        }
-      ],
-      "away_out": [
-        {
-          "name": "Jonathan Isaac",
-          "status": "Out",
-          "star": true
-        },
-        {
-          "name": "Anthony Black",
-          "status": "Out",
-          "star": false
-        }
-      ]
-    },
-    {
-      "matchup": "NOP @ SAC",
-      "home_abbr": "SAC",
-      "away_abbr": "NOP",
-      "home_pct": 41.8,
-      "away_pct": 58.2,
-      "pick": "New Orleans Pelicans",
-      "winner_is": "away",
-      "confidence": "slight",
-      "home_out": [
-        {
-          "name": "Malik Monk",
-          "status": "Out",
-          "star": true
-        },
-        {
-          "name": "Keegan Murray",
-          "status": "Out",
-          "star": false
-        },
-        {
-          "name": "Russell Westbrook",
-          "status": "Out",
-          "star": false
-        }
-      ],
-      "away_out": [
-        {
-          "name": "Karlo Matkovic",
-          "status": "Out",
-          "star": true
-        },
-        {
-          "name": "Bryce McGowens",
-          "status": "Out",
-          "star": false
-        },
-        {
-          "name": "Dejounte Murray",
+          "name": "Cade Cunningham",
           "status": "Out",
           "star": false
         }
