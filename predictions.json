@@ -1,6 +1,6 @@
 {
   "date": "2026-04-04",
-  "generated": "2026-04-04T09:51:02",
+  "generated": "2026-04-04T19:14:36",
   "game_count": 3,
   "strong": 0,
   "games": [
@@ -8,16 +8,21 @@
       "matchup": "WAS @ MIA",
       "home_abbr": "MIA",
       "away_abbr": "WAS",
-      "home_pct": 68.4,
-      "away_pct": 31.6,
+      "home_pct": 63.2,
+      "away_pct": 36.8,
       "pick": "Miami Heat",
       "winner_is": "home",
       "confidence": "lean",
       "home_out": [
         {
-          "name": "Norman Powell",
+          "name": "Tyler Herro",
           "status": "Out",
           "star": true
+        },
+        {
+          "name": "Norman Powell",
+          "status": "Out",
+          "star": false
         },
         {
           "name": "Terry Rozier",
@@ -27,12 +32,17 @@
       ],
       "away_out": [
         {
-          "name": "Trae Young",
+          "name": "Tristan Vukcevic",
           "status": "Out",
           "star": true
         },
         {
           "name": "Alex Sarr",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Trae Young",
           "status": "Out",
           "star": false
         },
@@ -68,35 +78,35 @@
         },
         {
           "name": "Points / g",
-          "home": "119.6",
-          "away": "113.2",
-          "rawHome": 119.6,
-          "rawAway": 113.2,
+          "home": "123.1",
+          "away": "115.1",
+          "rawHome": 123.1,
+          "rawAway": 115.1,
           "higherBetter": true
         },
         {
           "name": "Rebounds / g",
-          "home": "41.6",
-          "away": "36.6",
-          "rawHome": 41.6,
-          "rawAway": 36.6,
+          "home": "43.3",
+          "away": "37.4",
+          "rawHome": 43.3,
+          "rawAway": 37.4,
+          "higherBetter": true
+        },
+        {
+          "name": "Assists / g",
+          "home": "29.5",
+          "away": "25.0",
+          "rawHome": 29.5,
+          "rawAway": 25.0,
           "higherBetter": true
         },
         {
           "name": "Turnovers / g",
-          "home": "10.9",
-          "away": "14.6",
-          "rawHome": 10.9,
-          "rawAway": 14.6,
+          "home": "11.3",
+          "away": "13.4",
+          "rawHome": 11.3,
+          "rawAway": 13.4,
           "higherBetter": false
-        },
-        {
-          "name": "Assists / g",
-          "home": "27.8",
-          "away": "24.6",
-          "rawHome": 27.8,
-          "rawAway": 24.6,
-          "higherBetter": true
         }
       ]
     },
@@ -104,8 +114,8 @@
       "matchup": "SAS @ DEN",
       "home_abbr": "DEN",
       "away_abbr": "SAS",
-      "home_pct": 45.7,
-      "away_pct": 54.3,
+      "home_pct": 47.8,
+      "away_pct": 52.2,
       "pick": "San Antonio Spurs",
       "winner_is": "away",
       "confidence": "tossup",
@@ -149,34 +159,34 @@
         },
         {
           "name": "Rebounds / g",
-          "home": "45.8",
-          "away": "50.6",
-          "rawHome": 45.8,
-          "rawAway": 50.6,
+          "home": "46.2",
+          "away": "50.4",
+          "rawHome": 46.2,
+          "rawAway": 50.4,
           "higherBetter": true
         },
         {
           "name": "Blocks / g",
-          "home": "3.2",
-          "away": "5.5",
-          "rawHome": 3.2,
-          "rawAway": 5.5,
+          "home": "3.3",
+          "away": "5.4",
+          "rawHome": 3.3,
+          "rawAway": 5.4,
+          "higherBetter": true
+        },
+        {
+          "name": "Steals / g",
+          "home": "5.4",
+          "away": "7.1",
+          "rawHome": 5.4,
+          "rawAway": 7.1,
           "higherBetter": true
         },
         {
           "name": "Points / g",
-          "home": "126.4",
-          "away": "124.6",
-          "rawHome": 126.4,
-          "rawAway": 124.6,
-          "higherBetter": true
-        },
-        {
-          "name": "Assists / g",
-          "home": "33.1",
-          "away": "32.1",
-          "rawHome": 33.1,
-          "rawAway": 32.1,
+          "home": "127.5",
+          "away": "126.1",
+          "rawHome": 127.5,
+          "rawAway": 126.1,
           "higherBetter": true
         }
       ]
@@ -185,16 +195,21 @@
       "matchup": "DET @ PHI",
       "home_abbr": "PHI",
       "away_abbr": "DET",
-      "home_pct": 33.3,
-      "away_pct": 66.7,
+      "home_pct": 34.8,
+      "away_pct": 65.2,
       "pick": "Detroit Pistons",
       "winner_is": "away",
       "confidence": "lean",
       "home_out": [
         {
-          "name": "Johni Broome",
+          "name": "Joel Embiid",
           "status": "Out",
           "star": true
+        },
+        {
+          "name": "Johni Broome",
+          "status": "Out",
+          "star": false
         }
       ],
       "away_out": [
