@@ -1,48 +1,158 @@
 {
-  "date": "2026-04-04",
-  "generated": "2026-04-04T19:14:36",
-  "game_count": 3,
-  "strong": 0,
+  "date": "2026-04-05",
+  "generated": "2026-04-05T15:06:45",
+  "game_count": 11,
+  "strong": 2,
   "games": [
     {
-      "matchup": "WAS @ MIA",
-      "home_abbr": "MIA",
-      "away_abbr": "WAS",
-      "home_pct": 63.2,
-      "away_pct": 36.8,
-      "pick": "Miami Heat",
+      "matchup": "TOR @ BOS",
+      "home_abbr": "BOS",
+      "away_abbr": "TOR",
+      "home_pct": 69.0,
+      "away_pct": 31.0,
+      "pick": "Boston Celtics",
       "winner_is": "home",
       "confidence": "lean",
-      "home_out": [
+      "home_out": [],
+      "away_out": [
         {
-          "name": "Tyler Herro",
+          "name": "Chucky Hepburn",
           "status": "Out",
           "star": true
         },
         {
-          "name": "Norman Powell",
+          "name": "Immanuel Quickley",
+          "status": "Out",
+          "star": false
+        }
+      ],
+      "stats": [
+        {
+          "name": "Elo rating",
+          "home": "1524",
+          "away": "1495",
+          "rawHome": 1523.9,
+          "rawAway": 1494.9,
+          "higherBetter": true
+        },
+        {
+          "name": "Assists / g",
+          "home": "24.8",
+          "away": "34.4",
+          "rawHome": 24.8,
+          "rawAway": 34.4,
+          "higherBetter": true
+        },
+        {
+          "name": "Rebounds / g",
+          "home": "47.5",
+          "away": "40.2",
+          "rawHome": 47.5,
+          "rawAway": 40.2,
+          "higherBetter": true
+        },
+        {
+          "name": "Steals / g",
+          "home": "6.1",
+          "away": "10.3",
+          "rawHome": 6.1,
+          "rawAway": 10.3,
+          "higherBetter": true
+        },
+        {
+          "name": "Points / g",
+          "home": "117.3",
+          "away": "120.6",
+          "rawHome": 117.3,
+          "rawAway": 120.6,
+          "higherBetter": true
+        }
+      ]
+    },
+    {
+      "matchup": "WAS @ BKN",
+      "home_abbr": "BKN",
+      "away_abbr": "WAS",
+      "home_pct": 58.4,
+      "away_pct": 41.6,
+      "pick": "Brooklyn Nets",
+      "winner_is": "home",
+      "confidence": "slight",
+      "home_out": [
+        {
+          "name": "Ben Saraf",
+          "status": "Out",
+          "star": true
+        },
+        {
+          "name": "Terance Mann",
           "status": "Out",
           "star": false
         },
         {
-          "name": "Terry Rozier",
+          "name": "Noah Clowney",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Nic Claxton",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Ziaire Williams",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Michael Porter Jr.",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Danny Wolf",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Egor Demin",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Day'Ron Sharpe",
           "status": "Out",
           "star": false
         }
       ],
       "away_out": [
         {
-          "name": "Tristan Vukcevic",
+          "name": "Justin Champagnie",
           "status": "Out",
           "star": true
         },
         {
-          "name": "Alex Sarr",
+          "name": "Tristan Vukcevic",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Tre Johnson",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Bilal Coulibaly",
           "status": "Out",
           "star": false
         },
         {
           "name": "Trae Young",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Alex Sarr",
           "status": "Out",
           "star": false
         },
@@ -70,156 +180,100 @@
       "stats": [
         {
           "name": "Elo rating",
-          "home": "1455",
+          "home": "1486",
           "away": "1487",
-          "rawHome": 1455.2,
+          "rawHome": 1485.6,
           "rawAway": 1486.7,
           "higherBetter": true
         },
         {
           "name": "Points / g",
-          "home": "123.1",
+          "home": "101.4",
           "away": "115.1",
-          "rawHome": 123.1,
+          "rawHome": 101.4,
           "rawAway": 115.1,
           "higherBetter": true
         },
         {
+          "name": "Turnovers / g",
+          "home": "16.1",
+          "away": "13.4",
+          "rawHome": 16.1,
+          "rawAway": 13.4,
+          "higherBetter": false
+        },
+        {
           "name": "Rebounds / g",
-          "home": "43.3",
+          "home": "35.1",
           "away": "37.4",
-          "rawHome": 43.3,
+          "rawHome": 35.1,
           "rawAway": 37.4,
           "higherBetter": true
         },
         {
-          "name": "Assists / g",
-          "home": "29.5",
-          "away": "25.0",
-          "rawHome": 29.5,
-          "rawAway": 25.0,
-          "higherBetter": true
-        },
-        {
-          "name": "Turnovers / g",
-          "home": "11.3",
-          "away": "13.4",
-          "rawHome": 11.3,
-          "rawAway": 13.4,
-          "higherBetter": false
-        }
-      ]
-    },
-    {
-      "matchup": "SAS @ DEN",
-      "home_abbr": "DEN",
-      "away_abbr": "SAS",
-      "home_pct": 47.8,
-      "away_pct": 52.2,
-      "pick": "San Antonio Spurs",
-      "winner_is": "away",
-      "confidence": "tossup",
-      "home_out": [
-        {
-          "name": "Zeke Nnaji",
-          "status": "Out",
-          "star": true
-        },
-        {
-          "name": "Spencer Jones",
-          "status": "Out",
-          "star": false
-        },
-        {
-          "name": "Peyton Watson",
-          "status": "Out",
-          "star": false
-        }
-      ],
-      "away_out": [
-        {
-          "name": "Emanuel Miller",
-          "status": "Out",
-          "star": true
-        },
-        {
-          "name": "David Jones Garcia",
-          "status": "Out",
-          "star": false
-        }
-      ],
-      "stats": [
-        {
-          "name": "Elo rating",
-          "home": "1514",
-          "away": "1493",
-          "rawHome": 1513.7,
-          "rawAway": 1493.5,
-          "higherBetter": true
-        },
-        {
-          "name": "Rebounds / g",
-          "home": "46.2",
-          "away": "50.4",
-          "rawHome": 46.2,
-          "rawAway": 50.4,
-          "higherBetter": true
-        },
-        {
-          "name": "Blocks / g",
-          "home": "3.3",
-          "away": "5.4",
-          "rawHome": 3.3,
-          "rawAway": 5.4,
-          "higherBetter": true
-        },
-        {
           "name": "Steals / g",
-          "home": "5.4",
-          "away": "7.1",
-          "rawHome": 5.4,
-          "rawAway": 7.1,
-          "higherBetter": true
-        },
-        {
-          "name": "Points / g",
-          "home": "127.5",
-          "away": "126.1",
-          "rawHome": 127.5,
-          "rawAway": 126.1,
+          "home": "10.0",
+          "away": "8.1",
+          "rawHome": 10.0,
+          "rawAway": 8.1,
           "higherBetter": true
         }
       ]
     },
     {
-      "matchup": "DET @ PHI",
-      "home_abbr": "PHI",
-      "away_abbr": "DET",
-      "home_pct": 34.8,
-      "away_pct": 65.2,
-      "pick": "Detroit Pistons",
+      "matchup": "PHX @ CHI",
+      "home_abbr": "CHI",
+      "away_abbr": "PHX",
+      "home_pct": 39.3,
+      "away_pct": 60.7,
+      "pick": "Phoenix Suns",
       "winner_is": "away",
       "confidence": "lean",
       "home_out": [
         {
-          "name": "Joel Embiid",
+          "name": "Nick Richards",
           "status": "Out",
           "star": true
         },
         {
-          "name": "Johni Broome",
+          "name": "Matas Buzelis",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Josh Giddey",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Anfernee Simons",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Jalen Smith",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Zach Collins",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Noa Essengue",
           "status": "Out",
           "star": false
         }
       ],
       "away_out": [
         {
-          "name": "Isaiah Stewart",
+          "name": "Amir Coffey",
           "status": "Out",
           "star": true
         },
         {
-          "name": "Cade Cunningham",
+          "name": "Haywood Highsmith",
           "status": "Out",
           "star": false
         }
@@ -227,42 +281,834 @@
       "stats": [
         {
           "name": "Elo rating",
-          "home": "1481",
-          "away": "1480",
-          "rawHome": 1480.7,
-          "rawAway": 1480.5,
+          "home": "1503",
+          "away": "1494",
+          "rawHome": 1503.0,
+          "rawAway": 1493.6,
           "higherBetter": true
         },
         {
           "name": "Points / g",
-          "home": "122.5",
-          "away": "119.2",
-          "rawHome": 122.5,
-          "rawAway": 119.2,
-          "higherBetter": true
-        },
-        {
-          "name": "Assists / g",
-          "home": "27.8",
-          "away": "31.0",
-          "rawHome": 27.8,
-          "rawAway": 31.0,
+          "home": "119.3",
+          "away": "114.7",
+          "rawHome": 119.3,
+          "rawAway": 114.7,
           "higherBetter": true
         },
         {
           "name": "Turnovers / g",
-          "home": "11.7",
-          "away": "14.2",
-          "rawHome": 11.7,
-          "rawAway": 14.2,
+          "home": "15.9",
+          "away": "11.4",
+          "rawHome": 15.9,
+          "rawAway": 11.4,
           "higherBetter": false
         },
         {
+          "name": "Rebounds / g",
+          "home": "44.0",
+          "away": "42.3",
+          "rawHome": 44.0,
+          "rawAway": 42.3,
+          "higherBetter": true
+        },
+        {
           "name": "Steals / g",
-          "home": "7.6",
-          "away": "9.9",
-          "rawHome": 7.6,
-          "rawAway": 9.9,
+          "home": "7.3",
+          "away": "8.8",
+          "rawHome": 7.3,
+          "rawAway": 8.8,
+          "higherBetter": true
+        }
+      ]
+    },
+    {
+      "matchup": "MEM @ MIL",
+      "home_abbr": "MIL",
+      "away_abbr": "MEM",
+      "home_pct": 52.5,
+      "away_pct": 47.5,
+      "pick": "Milwaukee Bucks",
+      "winner_is": "home",
+      "confidence": "tossup",
+      "home_out": [
+        {
+          "name": "Giannis Antetokounmpo",
+          "status": "Out",
+          "star": true
+        },
+        {
+          "name": "Bobby Portis",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Gary Trent Jr.",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Kevin Porter Jr.",
+          "status": "Out",
+          "star": false
+        }
+      ],
+      "away_out": [
+        {
+          "name": "Cedric Coward",
+          "status": "Out",
+          "star": true
+        },
+        {
+          "name": "GG Jackson",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Javon Small",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Cam Spencer",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Jahmai Mashack",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Ty Jerome",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Jaylen Wells",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Zach Edey",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Ja Morant",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Brandon Clarke",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Santi Aldama",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Scotty Pippen Jr.",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Kentavious Caldwell-Pope",
+          "status": "Out",
+          "star": false
+        }
+      ],
+      "stats": [
+        {
+          "name": "Elo rating",
+          "home": "1476",
+          "away": "1455",
+          "rawHome": 1475.7,
+          "rawAway": 1454.9,
+          "higherBetter": true
+        },
+        {
+          "name": "Points / g",
+          "home": "106.0",
+          "away": "109.7",
+          "rawHome": 106.0,
+          "rawAway": 109.7,
+          "higherBetter": true
+        },
+        {
+          "name": "Rebounds / g",
+          "home": "38.6",
+          "away": "35.1",
+          "rawHome": 38.6,
+          "rawAway": 35.1,
+          "higherBetter": true
+        },
+        {
+          "name": "Steals / g",
+          "home": "7.3",
+          "away": "9.5",
+          "rawHome": 7.3,
+          "rawAway": 9.5,
+          "higherBetter": true
+        },
+        {
+          "name": "Turnovers / g",
+          "home": "16.5",
+          "away": "14.5",
+          "rawHome": 16.5,
+          "rawAway": 14.5,
+          "higherBetter": false
+        }
+      ]
+    },
+    {
+      "matchup": "IND @ CLE",
+      "home_abbr": "CLE",
+      "away_abbr": "IND",
+      "home_pct": 67.1,
+      "away_pct": 32.9,
+      "pick": "Cleveland Cavaliers",
+      "winner_is": "home",
+      "confidence": "lean",
+      "home_out": [
+        {
+          "name": "Sam Merrill",
+          "status": "Out",
+          "star": true
+        },
+        {
+          "name": "Jarrett Allen",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Jaylon Tyson",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Evan Mobley",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Dean Wade",
+          "status": "Out",
+          "star": false
+        }
+      ],
+      "away_out": [
+        {
+          "name": "Jarace Walker",
+          "status": "Out",
+          "star": true
+        },
+        {
+          "name": "Pascal Siakam",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Aaron Nesmith",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Andrew Nembhard",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "T.J. McConnell",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Ivica Zubac",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Johnny Furphy",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Tyrese Haliburton",
+          "status": "Out",
+          "star": false
+        }
+      ],
+      "stats": [
+        {
+          "name": "Elo rating",
+          "home": "1521",
+          "away": "1582",
+          "rawHome": 1520.8,
+          "rawAway": 1582.3,
+          "higherBetter": true
+        },
+        {
+          "name": "Assists / g",
+          "home": "28.6",
+          "away": "35.0",
+          "rawHome": 28.6,
+          "rawAway": 35.0,
+          "higherBetter": true
+        },
+        {
+          "name": "Rebounds / g",
+          "home": "44.2",
+          "away": "38.3",
+          "rawHome": 44.2,
+          "rawAway": 38.3,
+          "higherBetter": true
+        },
+        {
+          "name": "Points / g",
+          "home": "121.0",
+          "away": "123.0",
+          "rawHome": 121.0,
+          "rawAway": 123.0,
+          "higherBetter": true
+        },
+        {
+          "name": "Turnovers / g",
+          "home": "12.0",
+          "away": "13.5",
+          "rawHome": 12.0,
+          "rawAway": 13.5,
+          "higherBetter": false
+        }
+      ]
+    },
+    {
+      "matchup": "CHA @ MIN",
+      "home_abbr": "MIN",
+      "away_abbr": "CHA",
+      "home_pct": 37.4,
+      "away_pct": 62.6,
+      "pick": "Charlotte Hornets",
+      "winner_is": "away",
+      "confidence": "lean",
+      "home_out": [
+        {
+          "name": "Anthony Edwards",
+          "status": "Out",
+          "star": true
+        },
+        {
+          "name": "Jaden McDaniels",
+          "status": "Out",
+          "star": false
+        }
+      ],
+      "away_out": [
+        {
+          "name": "PJ Hall",
+          "status": "Out",
+          "star": true
+        }
+      ],
+      "stats": [
+        {
+          "name": "Elo rating",
+          "home": "1542",
+          "away": "1482",
+          "rawHome": 1541.9,
+          "rawAway": 1481.6,
+          "higherBetter": true
+        },
+        {
+          "name": "Points / g",
+          "home": "110.4",
+          "away": "122.4",
+          "rawHome": 110.4,
+          "rawAway": 122.4,
+          "higherBetter": true
+        },
+        {
+          "name": "Blocks / g",
+          "home": "6.7",
+          "away": "3.5",
+          "rawHome": 6.7,
+          "rawAway": 3.5,
+          "higherBetter": true
+        },
+        {
+          "name": "Steals / g",
+          "home": "8.9",
+          "away": "6.7",
+          "rawHome": 8.9,
+          "rawAway": 6.7,
+          "higherBetter": true
+        },
+        {
+          "name": "Assists / g",
+          "home": "25.1",
+          "away": "26.8",
+          "rawHome": 25.1,
+          "rawAway": 26.8,
+          "higherBetter": true
+        }
+      ]
+    },
+    {
+      "matchup": "ORL @ NOP",
+      "home_abbr": "NOP",
+      "away_abbr": "ORL",
+      "home_pct": 46.6,
+      "away_pct": 53.4,
+      "pick": "Orlando Magic",
+      "winner_is": "away",
+      "confidence": "tossup",
+      "home_out": [
+        {
+          "name": "Karlo Matkovic",
+          "status": "Out",
+          "star": true
+        },
+        {
+          "name": "Dejounte Murray",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Trey Murphy III",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Bryce McGowens",
+          "status": "Out",
+          "star": false
+        }
+      ],
+      "away_out": [
+        {
+          "name": "Jett Howard",
+          "status": "Out",
+          "star": true
+        },
+        {
+          "name": "Anthony Black",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Jonathan Isaac",
+          "status": "Out",
+          "star": false
+        }
+      ],
+      "stats": [
+        {
+          "name": "Elo rating",
+          "home": "1487",
+          "away": "1473",
+          "rawHome": 1486.6,
+          "rawAway": 1473.1,
+          "higherBetter": true
+        },
+        {
+          "name": "Blocks / g",
+          "home": "6.2",
+          "away": "2.1",
+          "rawHome": 6.2,
+          "rawAway": 2.1,
+          "higherBetter": true
+        },
+        {
+          "name": "Points / g",
+          "home": "111.5",
+          "away": "114.2",
+          "rawHome": 111.5,
+          "rawAway": 114.2,
+          "higherBetter": true
+        },
+        {
+          "name": "Turnovers / g",
+          "home": "13.4",
+          "away": "16.1",
+          "rawHome": 13.4,
+          "rawAway": 16.1,
+          "higherBetter": false
+        },
+        {
+          "name": "Rebounds / g",
+          "home": "41.2",
+          "away": "38.7",
+          "rawHome": 41.2,
+          "rawAway": 38.7,
+          "higherBetter": true
+        }
+      ]
+    },
+    {
+      "matchup": "UTA @ OKC",
+      "home_abbr": "OKC",
+      "away_abbr": "UTA",
+      "home_pct": 86.8,
+      "away_pct": 13.2,
+      "pick": "Oklahoma City Thunder",
+      "winner_is": "home",
+      "confidence": "strong",
+      "home_out": [
+        {
+          "name": "Thomas Sorber",
+          "status": "Out",
+          "star": true
+        }
+      ],
+      "away_out": [
+        {
+          "name": "Elijah Harkless",
+          "status": "Out",
+          "star": true
+        },
+        {
+          "name": "Keyonte George",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Isaiah Collier",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Lauri Markkanen",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Jusuf Nurkic",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Jaren Jackson Jr.",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Walker Kessler",
+          "status": "Out",
+          "star": false
+        }
+      ],
+      "stats": [
+        {
+          "name": "Elo rating",
+          "home": "1615",
+          "away": "1481",
+          "rawHome": 1615.2,
+          "rawAway": 1481.2,
+          "higherBetter": true
+        },
+        {
+          "name": "Assists / g",
+          "home": "25.3",
+          "away": "29.8",
+          "rawHome": 25.3,
+          "rawAway": 29.8,
+          "higherBetter": true
+        },
+        {
+          "name": "Rebounds / g",
+          "home": "46.9",
+          "away": "42.5",
+          "rawHome": 46.9,
+          "rawAway": 42.5,
+          "higherBetter": true
+        },
+        {
+          "name": "Points / g",
+          "home": "120.9",
+          "away": "116.6",
+          "rawHome": 120.9,
+          "rawAway": 116.6,
+          "higherBetter": true
+        },
+        {
+          "name": "Turnovers / g",
+          "home": "11.8",
+          "away": "13.7",
+          "rawHome": 11.8,
+          "rawAway": 13.7,
+          "higherBetter": false
+        }
+      ]
+    },
+    {
+      "matchup": "LAL @ DAL",
+      "home_abbr": "DAL",
+      "away_abbr": "LAL",
+      "home_pct": 25.0,
+      "away_pct": 75.0,
+      "pick": "Los Angeles Lakers",
+      "winner_is": "away",
+      "confidence": "strong",
+      "home_out": [
+        {
+          "name": "Caleb Martin",
+          "status": "Out",
+          "star": true
+        },
+        {
+          "name": "Marvin Bagley III",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Kyrie Irving",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Dereck Lively II",
+          "status": "Out",
+          "star": false
+        }
+      ],
+      "away_out": [
+        {
+          "name": "Marcus Smart",
+          "status": "Out",
+          "star": true
+        },
+        {
+          "name": "Austin Reaves",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Luka Doncic",
+          "status": "Out",
+          "star": false
+        }
+      ],
+      "stats": [
+        {
+          "name": "Elo rating",
+          "home": "1493",
+          "away": "1472",
+          "rawHome": 1493.4,
+          "rawAway": 1471.9,
+          "higherBetter": true
+        },
+        {
+          "name": "Assists / g",
+          "home": "26.9",
+          "away": "23.9",
+          "rawHome": 26.9,
+          "rawAway": 23.9,
+          "higherBetter": true
+        },
+        {
+          "name": "Rebounds / g",
+          "home": "43.4",
+          "away": "40.5",
+          "rawHome": 43.4,
+          "rawAway": 40.5,
+          "higherBetter": true
+        },
+        {
+          "name": "Blocks / g",
+          "home": "4.3",
+          "away": "5.4",
+          "rawHome": 4.3,
+          "rawAway": 5.4,
+          "higherBetter": true
+        },
+        {
+          "name": "Points / g",
+          "home": "117.8",
+          "away": "116.9",
+          "rawHome": 117.8,
+          "rawAway": 116.9,
+          "higherBetter": true
+        }
+      ]
+    },
+    {
+      "matchup": "LAC @ SAC",
+      "home_abbr": "SAC",
+      "away_abbr": "LAC",
+      "home_pct": 38.6,
+      "away_pct": 61.4,
+      "pick": "Los Angeles Clippers",
+      "winner_is": "away",
+      "confidence": "lean",
+      "home_out": [
+        {
+          "name": "Keegan Murray",
+          "status": "Out",
+          "star": true
+        },
+        {
+          "name": "Russell Westbrook",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Isaiah Stevens",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Drew Eubanks",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "De'Andre Hunter",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Domantas Sabonis",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Zach LaVine",
+          "status": "Out",
+          "star": false
+        }
+      ],
+      "away_out": [],
+      "stats": [
+        {
+          "name": "Elo rating",
+          "home": "1495",
+          "away": "1499",
+          "rawHome": 1495.4,
+          "rawAway": 1499.1,
+          "higherBetter": true
+        },
+        {
+          "name": "Rebounds / g",
+          "home": "43.2",
+          "away": "38.8",
+          "rawHome": 43.2,
+          "rawAway": 38.8,
+          "higherBetter": true
+        },
+        {
+          "name": "Steals / g",
+          "home": "5.9",
+          "away": "10.2",
+          "rawHome": 5.9,
+          "rawAway": 10.2,
+          "higherBetter": true
+        },
+        {
+          "name": "Assists / g",
+          "home": "27.4",
+          "away": "24.2",
+          "rawHome": 27.4,
+          "rawAway": 24.2,
+          "higherBetter": true
+        },
+        {
+          "name": "Points / g",
+          "home": "112.3",
+          "away": "115.3",
+          "rawHome": 112.3,
+          "rawAway": 115.3,
+          "higherBetter": true
+        }
+      ]
+    },
+    {
+      "matchup": "HOU @ GSW",
+      "home_abbr": "GSW",
+      "away_abbr": "HOU",
+      "home_pct": 35.2,
+      "away_pct": 64.8,
+      "pick": "Houston Rockets",
+      "winner_is": "away",
+      "confidence": "lean",
+      "home_out": [
+        {
+          "name": "Stephen Curry",
+          "status": "Out",
+          "star": true
+        },
+        {
+          "name": "Al Horford",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Quinten Post",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Moses Moody",
+          "status": "Out",
+          "star": false
+        },
+        {
+          "name": "Jimmy Butler III",
+          "status": "Out",
+          "star": false
+        }
+      ],
+      "away_out": [
+        {
+          "name": "Steven Adams",
+          "status": "Out",
+          "star": true
+        },
+        {
+          "name": "Fred VanVleet",
+          "status": "Out",
+          "star": false
+        }
+      ],
+      "stats": [
+        {
+          "name": "Elo rating",
+          "home": "1488",
+          "away": "1500",
+          "rawHome": 1487.6,
+          "rawAway": 1500.0,
+          "higherBetter": true
+        },
+        {
+          "name": "Points / g",
+          "home": "112.9",
+          "away": "121.1",
+          "rawHome": 112.9,
+          "rawAway": 121.1,
+          "higherBetter": true
+        },
+        {
+          "name": "Rebounds / g",
+          "home": "40.8",
+          "away": "47.0",
+          "rawHome": 40.8,
+          "rawAway": 47.0,
+          "higherBetter": true
+        },
+        {
+          "name": "Turnovers / g",
+          "home": "17.5",
+          "away": "12.5",
+          "rawHome": 17.5,
+          "rawAway": 12.5,
+          "higherBetter": false
+        },
+        {
+          "name": "Assists / g",
+          "home": "27.9",
+          "away": "30.3",
+          "rawHome": 27.9,
+          "rawAway": 30.3,
           "higherBetter": true
         }
       ]
