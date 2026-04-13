@@ -80,6 +80,26 @@
     .cb-slight{background:var(--yellow2);color:var(--yellow)}
     .cb-tossup{background:rgba(136,136,153,0.12);color:var(--muted)}
 
+    /* END OF SEASON BANNER */
+    .eos-banner{
+      background:rgba(249,115,22,0.07);
+      border:0.5px solid rgba(249,115,22,0.22);
+      border-radius:10px;
+      padding:1rem 1.25rem;
+      margin-bottom:1.5rem;
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.6;
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+    }
+    .eos-icon{
+      width:18px;height:18px;flex-shrink:0;margin-top:1px;
+      color:var(--orange);
+    }
+    .eos-banner strong{color:var(--orange);font-weight:700}
+
     /* PICKS SECTION */
     .picks-section{padding:5rem 2rem;max-width:1200px;margin:0 auto}
     .picks-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
@@ -201,6 +221,8 @@
         <button class="filter-btn" onclick="filterGames('tossup',this)">Toss-up</button>
       </div>
     </div>
+    <!-- end-of-season banner injected here by JS when applicable -->
+    <div id="eos-banner-slot"></div>
     <div class="games-grid" id="games-grid"><div class="loading-state">Fetching predictions...</div></div>
   </div>
 
@@ -294,6 +316,17 @@ const CONF={
 };
 function conf(c){return CONF[c]||CONF.tossup}
 
+// ── END OF SEASON DETECTION ────────────────────────────
+// NBA regular season ends mid-April each year.
+// Banner shows April 10 – April 20 to cover the final ~5 days
+// and drops off automatically once playoffs begin.
+function isEndOfSeason(dateStr){
+  const d=new Date(dateStr+'T12:00:00');
+  const m=d.getMonth(); // 0-indexed, 3 = April
+  const day=d.getDate();
+  return m===3 && day>=10 && day<=20;
+}
+
 // ── TICKER CARD ────────────────────────────────────────
 function makeTickerCard(g){
   const c=conf(g.confidence),winnerAbbr=g.winner_is==='home'?g.home_abbr:g.away_abbr,winPct=Math.max(g.home_pct,g.away_pct).toFixed(1);
@@ -312,8 +345,6 @@ function makeTickerCard(g){
 // ── GAME TILE ──────────────────────────────────────────
 function makeGameTile(g){
   const c=conf(g.confidence);
-
-  // stat rows — away on left, home on right
   const statsHtml=(g.stats||[]).map(s=>{
     const homeIsBetter=s.higherBetter?s.rawHome>s.rawAway:s.rawHome<s.rawAway;
     return `<div class="stat-row">
@@ -323,7 +354,6 @@ function makeGameTile(g){
     </div>`;
   }).join('');
 
-  // injuries — show up to 4, highlight those with pis > 1.0
   function injList(outs){
     if(!outs||!outs.length)return`<div class="inj-none">Healthy</div>`;
     const rows=outs.slice(0,4).map(p=>{
@@ -395,22 +425,38 @@ async function loadPredictions(){
 }
 
 function renderAll(data){
-  // date formatting
   const d=new Date(data.date+'T12:00:00');
   const fmt=d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
   const genTime=new Date(data.generated).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
 
-  // hero + meta
   document.getElementById('hero-badge').textContent=`Live \u00B7 ${fmt}`;
   document.getElementById('meta-games').textContent=`${data.game_count} games tonight`;
   document.getElementById('meta-strong').textContent=`${data.strong} strong picks`;
   document.getElementById('picks-date').textContent=`${fmt} \u00B7 ${data.game_count} games \u00B7 generated ${genTime}`;
   document.getElementById('footer-ts').textContent=`Updated ${new Date(data.generated).toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}`;
 
-  // ticker (doubled for seamless loop)
+  // end-of-season banner — shown automatically, disappears after April 20
+  const bannerSlot=document.getElementById('eos-banner-slot');
+  if(isEndOfSeason(data.date)){
+    bannerSlot.innerHTML=`
+      <div class="eos-banner">
+        <svg class="eos-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+          <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        <div>
+          <strong>End of season &mdash; use with caution.</strong>
+          Teams are resting starters for the playoffs. Rosters with 8+ players out produce
+          extreme probabilities that don't reflect true game competitiveness. The model performs
+          normally once playoffs begin with full rosters.
+        </div>
+      </div>`;
+  } else {
+    bannerSlot.innerHTML='';
+  }
+
   document.getElementById('ticker').innerHTML=[...data.games,...data.games].map(makeTickerCard).join('');
 
-  // game grid
   document.getElementById('games-grid').innerHTML=data.games.length
     ?data.games.map(makeGameTile).join('')
     :'<div class="empty-state">No games scheduled today.</div>';
