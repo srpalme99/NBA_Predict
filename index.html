@@ -11,205 +11,168 @@
       --text:#f0f0ff;--muted:#888899;--muted2:#55556a;
       --orange:#F97316;--orange2:rgba(249,115,22,0.15);--orange3:rgba(249,115,22,0.06);
       --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.10);
+      --green:#4ade80;--green2:rgba(74,222,128,0.12);
+      --yellow:#facc15;--yellow2:rgba(250,204,21,0.12);
+      --red:#f87171;
     }
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,'Segoe UI',sans-serif;overflow-x:hidden}
-
     canvas#bg{position:fixed;inset:0;pointer-events:none;z-index:0}
     .page{position:relative;z-index:1}
 
-    /* ── NAV ── */
-    nav{
-      position:fixed;top:0;left:0;right:0;z-index:100;
-      display:flex;align-items:center;justify-content:space-between;
-      padding:0 2.5rem;height:62px;
-      border-bottom:0.5px solid var(--border);
-      background:rgba(8,8,16,0.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
-    }
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:62px;border-bottom:0.5px solid var(--border);background:rgba(8,8,16,0.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
     .logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:17px;letter-spacing:-0.4px;color:var(--text);text-decoration:none}
     .logo-orb{width:28px;height:28px;border-radius:50%;background:var(--orange);position:relative;overflow:hidden;flex-shrink:0}
     .logo-orb::after{content:'';position:absolute;top:50%;left:-3px;right:-3px;height:0.5px;background:rgba(0,0,0,0.4)}
     .logo-orb::before{content:'';position:absolute;left:50%;top:-3px;bottom:-3px;width:0.5px;background:rgba(0,0,0,0.4)}
-
     .gooey-nav{position:relative;display:flex;align-items:center}
     .gooey-nav ul{list-style:none;display:flex;align-items:center;gap:4px;position:relative}
-    .gooey-nav ul li a{
-      display:block;padding:8px 20px;border-radius:40px;font-size:14px;font-weight:500;
-      color:var(--muted);text-decoration:none;cursor:pointer;transition:color 0.25s;position:relative;z-index:2;white-space:nowrap;
-    }
+    .gooey-nav ul li a{display:block;padding:8px 20px;border-radius:40px;font-size:14px;font-weight:500;color:var(--muted);text-decoration:none;cursor:pointer;transition:color 0.25s;position:relative;z-index:2;white-space:nowrap}
     .gooey-nav ul li.active a{color:#080810}
     .gooey-nav ul li a:hover{color:var(--text)}
-    .pill-bg{
-      position:absolute;border-radius:40px;background:var(--text);
-      transition:left 0.35s cubic-bezier(.4,0,.2,1),width 0.35s cubic-bezier(.4,0,.2,1),top 0.35s cubic-bezier(.4,0,.2,1);
-      pointer-events:none;z-index:1;
-    }
-
+    .pill-bg{position:absolute;border-radius:40px;background:var(--text);transition:left 0.35s cubic-bezier(.4,0,.2,1),width 0.35s cubic-bezier(.4,0,.2,1),top 0.35s cubic-bezier(.4,0,.2,1);pointer-events:none;z-index:1}
     .nav-cta{background:var(--orange);color:#fff;border:none;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:background 0.15s;text-decoration:none;display:inline-block}
     .nav-cta:hover{background:#ea6a05}
-
     @media(max-width:700px){.nav-links-wrap{display:none}}
 
-    /* ── HERO ── */
-    .hero{
-      min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
-      text-align:center;padding:100px 2rem 5rem;
-    }
-    .hero-eyebrow{
-      display:inline-flex;align-items:center;gap:7px;
-      background:var(--orange2);border:0.5px solid rgba(249,115,22,0.25);
-      color:var(--orange);font-size:11.5px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;
-      padding:5px 13px;border-radius:100px;margin-bottom:2.2rem;
-    }
+    /* HERO */
+    .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 2rem 5rem}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:7px;background:var(--orange2);border:0.5px solid rgba(249,115,22,0.25);color:var(--orange);font-size:11.5px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;padding:5px 13px;border-radius:100px;margin-bottom:2.2rem}
     .dot-pulse{width:6px;height:6px;border-radius:50%;background:var(--orange);animation:dp 1.8s ease-in-out infinite;flex-shrink:0}
     @keyframes dp{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.3;transform:scale(0.7)}}
-
-    .hero h1{
-      font-size:clamp(46px,9vw,96px);font-weight:900;letter-spacing:-4px;line-height:0.95;
-      margin-bottom:1.6rem;max-width:860px;
-    }
-    .h1-line2{color:var(--orange)}
-    .hero-sub{font-size:clamp(15px,2vw,17.5px);color:var(--muted);max-width:520px;line-height:1.65;margin-bottom:3rem}
-
+    .hero h1{font-size:clamp(46px,9vw,96px);font-weight:900;letter-spacing:-4px;line-height:0.95;margin-bottom:1.6rem;max-width:860px}
+    .h1-accent{color:var(--orange)}
+    .hero-sub{font-size:clamp(15px,2vw,17.5px);color:var(--muted);max-width:520px;line-height:1.65;margin-bottom:1.5rem}
+    .hero-meta{display:flex;align-items:center;gap:1.5rem;font-size:13px;color:var(--muted2);margin-bottom:2.5rem;flex-wrap:wrap;justify-content:center}
     .hero-btns{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
     .btn-p{background:var(--text);color:var(--bg);border:none;padding:14px 28px;border-radius:9px;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit;transition:opacity 0.15s;letter-spacing:-0.3px;text-decoration:none;display:inline-block}
     .btn-p:hover{opacity:0.88}
     .btn-g{background:transparent;color:var(--text);border:0.5px solid var(--border2);padding:14px 28px;border-radius:9px;font-size:15px;font-weight:500;cursor:pointer;font-family:inherit;transition:background 0.15s;text-decoration:none;display:inline-block}
     .btn-g:hover{background:var(--bg3)}
 
-    /* ── STATS ── */
-    .stats-strip{
-      display:flex;justify-content:center;align-items:stretch;
-      border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);
-      background:var(--bg2);flex-wrap:wrap;
-    }
+    /* STATS STRIP */
+    .stats-strip{display:flex;justify-content:center;align-items:stretch;border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);background:var(--bg2);flex-wrap:wrap}
     .stat-cell{padding:1.5rem 2.5rem;text-align:center;border-right:0.5px solid var(--border);flex:1;min-width:140px}
     .stat-cell:last-child{border-right:none}
     .stat-n{font-size:30px;font-weight:900;letter-spacing:-1.5px}
     .stat-l{font-size:11px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.6px;margin-top:4px}
 
-    /* ── TICKER ── */
+    /* TICKER */
     .ticker-wrap{padding:2rem 0;overflow:hidden;border-bottom:0.5px solid var(--border)}
     .ticker-lbl{text-align:center;font-size:11px;color:var(--muted2);text-transform:uppercase;letter-spacing:1px;margin-bottom:1rem}
-    .ticker-row{display:flex;gap:12px;width:max-content;animation:tick 35s linear infinite}
+    .ticker-row{display:flex;gap:12px;width:max-content;animation:tick 40s linear infinite}
     .ticker-row:hover{animation-play-state:paused}
     @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-    .gcard{
-      flex-shrink:0;background:var(--bg3);border:0.5px solid var(--border);border-radius:12px;
-      padding:14px 18px;min-width:210px;display:flex;flex-direction:column;gap:9px;cursor:default;transition:border-color 0.2s;
-    }
-    .gcard:hover{border-color:rgba(249,115,22,0.35)}
-    .gcard-hd{font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.5px}
-    .gcard-teams{display:flex;align-items:center;justify-content:space-between}
+    .tcard{flex-shrink:0;background:var(--bg3);border:0.5px solid var(--border);border-radius:12px;padding:14px 18px;min-width:215px;display:flex;flex-direction:column;gap:9px;transition:border-color 0.2s}
+    .tcard:hover{border-color:rgba(249,115,22,0.4)}
+    .tcard-hd{font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.5px}
+    .tcard-teams{display:flex;align-items:center;justify-content:space-between}
     .tblock{display:flex;flex-direction:column;align-items:center;gap:2px}
     .tabb{font-size:16px;font-weight:800;letter-spacing:-0.5px}
+    .tabb.pick-winner{color:var(--orange)}
     .tpct{font-size:11px;color:var(--muted)}
-    .vs-sep{font-size:11px;color:var(--muted2)}
     .prob-bar{height:3px;background:rgba(255,255,255,0.07);border-radius:2px;overflow:hidden}
     .prob-fill{height:100%;background:var(--orange);border-radius:2px}
     .cbadge{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;padding:3px 9px;border-radius:5px;align-self:flex-start}
-    .cb-str{background:rgba(249,115,22,0.15);color:var(--orange)}
-    .cb-lean{background:rgba(74,222,128,0.12);color:#4ade80}
-    .cb-slight{background:rgba(250,204,21,0.12);color:#facc15}
-    .cb-toss{background:rgba(136,136,153,0.12);color:var(--muted)}
+    .cb-strong{background:var(--orange2);color:var(--orange)}
+    .cb-lean{background:var(--green2);color:var(--green)}
+    .cb-slight{background:var(--yellow2);color:var(--yellow)}
+    .cb-tossup{background:rgba(136,136,153,0.12);color:var(--muted)}
 
-    /* ── SECTIONS ── */
-    section{padding:6rem 2rem;max-width:1060px;margin:0 auto}
-    .sec-kicker{font-size:11px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1px;margin-bottom:.7rem}
-    .sec-h{font-size:clamp(28px,4vw,46px);font-weight:900;letter-spacing:-1.5px;line-height:1.05;margin-bottom:1rem}
-    .sec-p{font-size:15.5px;color:var(--muted);line-height:1.7;max-width:540px}
+    /* PICKS SECTION */
+    .picks-section{padding:5rem 2rem;max-width:1200px;margin:0 auto}
+    .picks-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
+    .filter-row{display:flex;gap:8px;flex-wrap:wrap}
+    .filter-btn{background:transparent;color:var(--muted);border:0.5px solid var(--border2);padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:all 0.15s;text-transform:uppercase;letter-spacing:0.4px}
+    .filter-btn.active,.filter-btn:hover{background:var(--orange);color:#fff;border-color:var(--orange)}
 
-    /* ── FEATURE GRID ── */
-    .feat-grid{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
-      gap:1px;background:var(--border);border:0.5px solid var(--border);
-      border-radius:14px;overflow:hidden;margin-top:3.5rem;
-    }
-    .fcell{background:var(--bg);padding:1.75rem;transition:background 0.2s;cursor:default}
-    .fcell:hover{background:var(--bg3)}
-    .ficon{
-      width:40px;height:40px;border-radius:8px;
-      background:var(--orange3);border:0.5px solid rgba(249,115,22,0.2);
-      display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;
-    }
-    .ficon svg{width:18px;height:18px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-    .ft{font-size:16px;font-weight:700;letter-spacing:-0.3px;margin-bottom:.4rem}
-    .fd{font-size:13.5px;color:var(--muted);line-height:1.6}
+    /* GAME GRID */
+    .games-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px}
 
-    /* ── MODEL BAND ── */
-    .model-band{background:var(--bg2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);padding:6rem 2rem}
-    .model-in{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
-    @media(max-width:768px){.model-in{grid-template-columns:1fr}}
-    .steps{display:flex;flex-direction:column;margin-top:2.5rem}
-    .step{display:flex;gap:1rem;padding:1.1rem 0;border-top:0.5px solid var(--border)}
-    .snum{font-size:11px;font-weight:700;color:var(--orange);width:20px;flex-shrink:0;padding-top:2px}
-    .sname{font-size:14.5px;font-weight:700;margin-bottom:3px}
-    .sdesc{font-size:13px;color:var(--muted);line-height:1.5}
+    /* GAME TILE */
+    .game-tile{background:var(--bg3);border:0.5px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color 0.2s,transform 0.15s}
+    .game-tile:hover{border-color:rgba(249,115,22,0.3);transform:translateY(-1px)}
+    .tile-top{padding:1.25rem 1.25rem 1rem}
+    .tile-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+    .tile-matchup-label{font-size:11px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.5px}
+    .tile-teams{display:flex;align-items:center;justify-content:space-between}
+    .team-col{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1}
+    .team-abbr-lg{font-size:22px;font-weight:900;letter-spacing:-0.5px}
+    .team-abbr-lg.pick-winner{color:var(--orange)}
+    .team-pct-lg{font-size:13px;color:var(--muted);font-weight:600}
+    .team-role{font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.4px}
+    .tile-center{display:flex;flex-direction:column;align-items:center;gap:3px;padding:0 8px}
+    .pick-team-name{font-size:11px;font-weight:800;text-align:center;max-width:72px;line-height:1.25;margin-top:2px}
+    .big-bar{height:4px;background:rgba(255,255,255,0.06);border-radius:2px;overflow:hidden;margin-top:1rem}
+    .big-fill{height:100%;background:var(--orange);border-radius:2px}
 
-    /* ── ACC CARD ── */
-    .acc-card{background:var(--bg3);border:0.5px solid var(--border);border-radius:14px;padding:1.75rem;display:flex;flex-direction:column;gap:1.4rem}
-    .acc-lbl{font-size:11px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.6px}
-    .acc-big{font-size:62px;font-weight:900;letter-spacing:-3px;line-height:1;color:var(--text)}
-    .mchart{height:56px;display:flex;align-items:flex-end;gap:4px}
-    .mbar{flex:1;border-radius:3px 3px 0 0}
-    .acc-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;border-top:0.5px solid rgba(255,255,255,0.06);padding-top:1rem}
-    .ml{font-size:11px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.5px}
-    .mv{font-size:20px;font-weight:800;letter-spacing:-0.8px;margin-top:4px}
+    /* STATS TABLE */
+    .tile-stats{border-top:0.5px solid var(--border);padding:0.75rem 1.25rem}
+    .stats-header-row{display:flex;justify-content:space-between;font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
+    .stat-row{display:flex;align-items:center;padding:3px 0;font-size:12px;gap:6px}
+    .sv{font-weight:700;width:48px;text-align:right;flex-shrink:0}
+    .sv.better{color:var(--orange)}
+    .sv.worse{color:var(--muted)}
+    .sn{flex:1;text-align:center;font-size:11px;color:var(--muted2)}
+    .sv2{font-weight:700;width:48px;text-align:left;flex-shrink:0}
+    .sv2.better{color:var(--orange)}
+    .sv2.worse{color:var(--muted)}
 
-    /* ── CTA ── */
-    .cta-band{text-align:center;padding:7rem 2rem;background:var(--bg2);border-top:0.5px solid var(--border)}
-    .cta-h{font-size:clamp(32px,5vw,62px);font-weight:900;letter-spacing:-2px;margin-bottom:1rem}
-    .cta-sub{font-size:16px;color:var(--muted);margin-bottom:2.5rem}
+    /* INJURIES */
+    .tile-inj{border-top:0.5px solid var(--border);padding:0.75rem 1.25rem;display:flex;gap:1rem}
+    .inj-col{flex:1;min-width:0}
+    .inj-label{font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:5px;font-weight:700}
+    .inj-name{font-size:11px;color:var(--muted);line-height:1.65;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .inj-name.impactful{color:var(--red)}
+    .inj-none{font-size:11px;color:var(--muted2);font-style:italic}
+    .inj-divider{width:0.5px;background:var(--border);flex-shrink:0}
 
-    /* ── FOOTER ── */
-    footer{padding:1.75rem 2.5rem;border-top:0.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;font-size:12.5px;color:var(--muted2);flex-wrap:wrap;gap:12px}
+    /* STATES */
+    .empty-state,.loading-state{text-align:center;padding:4rem 2rem;color:var(--muted2);font-size:15px}
 
-    /* ── SCROLLBAR ── */
     ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:#27273a;border-radius:2px}
   </style>
 </head>
 <body>
-
 <canvas id="bg"></canvas>
-
 <div class="page">
 
   <!-- NAV -->
   <nav>
-    <a class="logo" href="#">
-      <div class="logo-orb"></div>
-      CourtIQ
-    </a>
+    <a class="logo" href="#"><div class="logo-orb"></div>CourtIQ</a>
     <div class="nav-links-wrap">
       <div class="gooey-nav" id="gnav">
         <ul id="gnav-ul">
-          <li class="active"><a href="#picks">Picks</a></li>
+          <li class="active"><a href="#picks">Tonight</a></li>
           <li><a href="#model">Model</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#accuracy">Accuracy</a></li>
+          <li><a href="#about">About</a></li>
         </ul>
         <div class="pill-bg" id="pill"></div>
       </div>
     </div>
-    <a class="nav-cta" href="#">Get access</a>
+    <a class="nav-cta" href="#picks">See picks</a>
   </nav>
 
   <!-- HERO -->
-  <div class="hero" id="picks">
-    <div class="hero-eyebrow">
-      <div class="dot-pulse"></div>
-      Live &middot; 2025&ndash;26 season
+  <div class="hero">
+    <div class="hero-eyebrow"><div class="dot-pulse"></div><span id="hero-badge">Live &middot; 2025&ndash;26 season</span></div>
+    <h1>Predict the game.<br><span class="h1-accent">Own the court.</span></h1>
+    <p class="hero-sub">ML-powered NBA win probabilities, injury-adjusted player impact, and spread predictions &mdash; updated every day the league plays.</p>
+    <div class="hero-meta">
+      <span id="meta-games">&mdash; games tonight</span>
+      <span style="color:var(--border2)">|</span>
+      <span id="meta-strong">&mdash; strong picks</span>
+      <span style="color:var(--border2)">|</span>
+      <span>v7 model</span>
     </div>
-    <h1>Predict the game.<br><span class="h1-line2">Own the court.</span></h1>
-    <p class="hero-sub">ML-powered NBA win probabilities, spread predictions, and injury-adjusted player impact &mdash; updated every day the league plays.</p>
     <div class="hero-btns">
-      <a class="btn-p" href="#">View tonight's picks &rarr;</a>
-      <a class="btn-g" href="#model">Explore the model</a>
+      <a class="btn-p" href="#picks">View tonight's picks &darr;</a>
+      <a class="btn-g" href="#model">How it works</a>
     </div>
   </div>
 
-  <!-- STATS -->
+  <!-- STATS STRIP -->
   <div class="stats-strip">
     <div class="stat-cell"><div class="stat-n" id="s1">0%</div><div class="stat-l">Season accuracy</div></div>
     <div class="stat-cell"><div class="stat-n" id="s2">0</div><div class="stat-l">Games analyzed</div></div>
@@ -219,247 +182,241 @@
 
   <!-- TICKER -->
   <div class="ticker-wrap">
-    <div class="ticker-lbl">Tonight's picks</div>
-    <div class="ticker-row" id="ticker"></div>
+    <div class="ticker-lbl">Tonight's picks &mdash; hover to pause</div>
+    <div class="ticker-row" id="ticker"><div style="padding:1rem 2rem;color:var(--muted2);font-size:13px">Loading...</div></div>
   </div>
 
-  <!-- FEATURES -->
-  <section id="features">
-    <div class="sec-kicker">What we do</div>
-    <div class="sec-h">Every edge,<br>quantified.</div>
-    <p class="sec-p">CourtIQ ingests live NBA data daily to surface edges most people miss &mdash; from injury-adjusted rosters to Elo drift.</p>
-    <div class="feat-grid">
-      <div class="fcell">
-        <div class="ficon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-        <div class="ft">Real-time injury adjustments</div>
-        <div class="fd">Player Impact Scores are recalculated the moment ESPN updates the injury report &mdash; late scratches priced in before tip-off.</div>
-      </div>
-      <div class="fcell">
-        <div class="ficon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-        <div class="ft">Gradient boosted spreads</div>
-        <div class="fd">A GBR margin model predicts point differential. Win probability flows from norm.cdf &mdash; not a raw classifier guess.</div>
-      </div>
-      <div class="fcell">
-        <div class="ficon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-        <div class="ft">Meta-stacker ensemble</div>
-        <div class="fd">A second-layer meta model blends the spread prediction with the base classifier for tighter, more calibrated outputs.</div>
-      </div>
-      <div class="fcell">
-        <div class="ficon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-        <div class="ft">Live advanced stats</div>
-        <div class="fd">E_NET_RATING, E_PACE, TS%, E_AST_RATIO &mdash; fetched from the NBA API each day and diffed HOME &minus; AWAY at inference.</div>
-      </div>
-      <div class="fcell">
-        <div class="ficon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
-        <div class="ft">Elo with a reality check</div>
-        <div class="fd">Elo ratings blended toward win-pct-implied ratings to correct for hot streaks the base Elo lags on.</div>
-      </div>
-      <div class="fcell">
-        <div class="ficon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-        <div class="ft">Schedule &amp; fatigue factors</div>
-        <div class="fd">Back-to-backs, road trip length, games in last 7 days, and EWMA-weighted recent form all baked into the feature vector.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MODEL PIPELINE -->
-  <div class="model-band" id="model">
-    <div class="model-in">
+  <!-- PICKS GRID -->
+  <div class="picks-section" id="picks">
+    <div class="picks-header">
       <div>
-        <div class="sec-kicker">Under the hood</div>
-        <div class="sec-h">v7 model<br>pipeline</div>
-        <p class="sec-p">Six stages turn raw NBA data into calibrated win probabilities every night.</p>
-        <div class="steps">
-          <div class="step"><div class="snum">01</div><div><div class="sname">Game discovery</div><div class="sdesc">ScoreboardV3 fetches tonight's matchups at runtime.</div></div></div>
-          <div class="step"><div class="snum">02</div><div><div class="sname">Injury scrape</div><div class="sdesc">ESPN endpoint parsed &mdash; Out / Doubtful / Questionable flagged.</div></div></div>
-          <div class="step"><div class="snum">03</div><div><div class="sname">Advanced stats fetch</div><div class="sdesc">LeagueDashTeamStats called with runtime kwarg probe for nba_api compat.</div></div></div>
-          <div class="step"><div class="snum">04</div><div><div class="sname">Rolling stat calc</div><div class="sdesc">Last 10 games averaged for 10 core box-score stats + EWMA windows.</div></div></div>
-          <div class="step"><div class="snum">05</div><div><div class="sname">Feature assembly</div><div class="sdesc">50+ HOME &minus; AWAY diff features, PIS blended 40/60 season/recent.</div></div></div>
-          <div class="step"><div class="snum">06</div><div><div class="sname">Prediction</div><div class="sdesc">Meta-stacker emits final win probability + spread + confidence label.</div></div></div>
-        </div>
+        <div style="font-size:28px;font-weight:900;letter-spacing:-1px;margin-bottom:4px">Tonight's picks</div>
+        <div style="font-size:13px;color:var(--muted2)" id="picks-date">Loading predictions...</div>
       </div>
-      <div id="accuracy">
-        <div class="acc-card">
-          <div class="acc-lbl">Season win-probability accuracy</div>
-          <div class="acc-big">67%</div>
-          <div style="font-size:13px;color:var(--muted)">vs. 50% coin-flip baseline</div>
-          <div class="mchart" id="mchart"></div>
-          <div class="acc-row">
-            <div><div class="ml">Strong picks</div><div class="mv" style="color:var(--orange)">74%</div></div>
-            <div><div class="ml">Lean picks</div><div class="mv">62%</div></div>
-          </div>
-          <div style="font-size:13px;color:var(--muted);line-height:1.6;border-top:0.5px solid rgba(255,255,255,0.06);padding-top:1rem">
-            Conditional residual std splits close / medium / large spreads for tighter probabilities on genuine mismatches.
-          </div>
-        </div>
+      <div class="filter-row">
+        <button class="filter-btn active" onclick="filterGames('all',this)">All</button>
+        <button class="filter-btn" onclick="filterGames('strong',this)">Strong</button>
+        <button class="filter-btn" onclick="filterGames('lean',this)">Lean</button>
+        <button class="filter-btn" onclick="filterGames('slight',this)">Slight</button>
+        <button class="filter-btn" onclick="filterGames('tossup',this)">Toss-up</button>
+      </div>
+    </div>
+    <div class="games-grid" id="games-grid"><div class="loading-state">Fetching predictions...</div></div>
+  </div>
+
+  <!-- MODEL -->
+  <div style="background:var(--bg2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);padding:6rem 2rem" id="model">
+    <div style="max-width:860px;margin:0 auto">
+      <div style="font-size:11px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1px;margin-bottom:.7rem">Under the hood</div>
+      <div style="font-size:clamp(28px,4vw,44px);font-weight:900;letter-spacing:-1.5px;line-height:1.05;margin-bottom:1rem">v7 model pipeline</div>
+      <p style="font-size:15px;color:var(--muted);line-height:1.7;max-width:540px;margin-bottom:3rem">Six stages turn raw NBA data into calibrated win probabilities every night.</p>
+      <div>
+        <div style="display:flex;gap:1rem;padding:1rem 0;border-top:0.5px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--orange);width:20px;flex-shrink:0;padding-top:2px">01</div><div><div style="font-size:14px;font-weight:700;margin-bottom:3px">Game discovery</div><div style="font-size:13px;color:var(--muted);line-height:1.5">ScoreboardV3 fetches tonight's matchups at runtime.</div></div></div>
+        <div style="display:flex;gap:1rem;padding:1rem 0;border-top:0.5px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--orange);width:20px;flex-shrink:0;padding-top:2px">02</div><div><div style="font-size:14px;font-weight:700;margin-bottom:3px">Injury scrape</div><div style="font-size:13px;color:var(--muted);line-height:1.5">ESPN endpoint parsed &mdash; Out / Doubtful / Questionable flagged per team.</div></div></div>
+        <div style="display:flex;gap:1rem;padding:1rem 0;border-top:0.5px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--orange);width:20px;flex-shrink:0;padding-top:2px">03</div><div><div style="font-size:14px;font-weight:700;margin-bottom:3px">Advanced stats fetch</div><div style="font-size:13px;color:var(--muted);line-height:1.5">LeagueDashTeamStats called with runtime kwarg probe for nba_api version compat.</div></div></div>
+        <div style="display:flex;gap:1rem;padding:1rem 0;border-top:0.5px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--orange);width:20px;flex-shrink:0;padding-top:2px">04</div><div><div style="font-size:14px;font-weight:700;margin-bottom:3px">Rolling stat calc</div><div style="font-size:13px;color:var(--muted);line-height:1.5">Last 10 games averaged for core box-score stats + 5/20-game EWMA windows.</div></div></div>
+        <div style="display:flex;gap:1rem;padding:1rem 0;border-top:0.5px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--orange);width:20px;flex-shrink:0;padding-top:2px">05</div><div><div style="font-size:14px;font-weight:700;margin-bottom:3px">Feature assembly</div><div style="font-size:13px;color:var(--muted);line-height:1.5">52 HOME &minus; AWAY diff features. PIS blended 40% season / 60% recent form.</div></div></div>
+        <div style="display:flex;gap:1rem;padding:1rem 0;border-top:0.5px solid var(--border)"><div style="font-size:11px;font-weight:700;color:var(--orange);width:20px;flex-shrink:0;padding-top:2px">06</div><div><div style="font-size:14px;font-weight:700;margin-bottom:3px">Prediction</div><div style="font-size:13px;color:var(--muted);line-height:1.5">Meta-stacker blends margin model + classifier &rarr; final win probability + confidence label.</div></div></div>
       </div>
     </div>
   </div>
 
-  <!-- CTA -->
-  <div class="cta-band">
-    <div class="cta-h">Ready to get an <span style="color:var(--orange)">edge?</span></div>
-    <p class="cta-sub">CourtIQ runs every night the NBA plays. Free during beta.</p>
-    <div class="hero-btns">
-      <a class="btn-p" href="#">Start predicting &rarr;</a>
-      <a class="btn-g" href="#model">Read the docs</a>
+  <!-- ABOUT -->
+  <div style="padding:6rem 2rem;max-width:900px;margin:0 auto" id="about">
+    <div style="font-size:11px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1px;margin-bottom:.7rem">About</div>
+    <div style="font-size:clamp(26px,4vw,40px);font-weight:900;letter-spacing:-1.5px;line-height:1.05;margin-bottom:1rem">Built on real data.</div>
+    <p style="font-size:15px;color:var(--muted);line-height:1.7;max-width:600px;margin-bottom:2rem">CourtIQ is a Python NBA prediction project using nba_api, scikit-learn, and ESPN injury data. The model runs nightly via GitHub Actions and publishes fresh picks to this page automatically.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+      <div style="background:var(--bg3);border:0.5px solid var(--border);border-radius:12px;padding:1.25rem"><div style="font-size:11px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Stack</div><div style="font-size:13.5px;color:var(--text);line-height:1.9">Python 3.11<br>nba_api<br>scikit-learn GBR<br>scipy &middot; joblib</div></div>
+      <div style="background:var(--bg3);border:0.5px solid var(--border);border-radius:12px;padding:1.25rem"><div style="font-size:11px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Data sources</div><div style="font-size:13.5px;color:var(--text);line-height:1.9">NBA Stats API<br>ESPN injury feed<br>Elo ratings<br>Player impact scores</div></div>
+      <div style="background:var(--bg3);border:0.5px solid var(--border);border-radius:12px;padding:1.25rem"><div style="font-size:11px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">Deployment</div><div style="font-size:13.5px;color:var(--text);line-height:1.9">GitHub Actions<br>Nightly cron job<br>GitHub Pages<br>Zero infra cost</div></div>
     </div>
   </div>
 
   <!-- FOOTER -->
-  <footer>
-    <div style="display:flex;align-items:center;gap:8px;font-weight:800;font-size:14px;color:var(--text)">
-      <div style="width:18px;height:18px;border-radius:50%;background:var(--orange);flex-shrink:0"></div>
-      CourtIQ
-    </div>
-    <div>Built on nba_api &middot; GradientBoosting &middot; ESPN injury data</div>
-    <div>&copy; 2025 CourtIQ</div>
+  <footer style="padding:1.75rem 2.5rem;border-top:0.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;font-size:12.5px;color:var(--muted2);flex-wrap:wrap;gap:12px">
+    <div style="display:flex;align-items:center;gap:8px;font-weight:800;font-size:14px;color:var(--text)"><div style="width:18px;height:18px;border-radius:50%;background:var(--orange);flex-shrink:0"></div>CourtIQ</div>
+    <div id="footer-ts">Updated nightly via GitHub Actions</div>
+    <div>For entertainment only &mdash; not financial advice.</div>
   </footer>
 
 </div>
 
 <script>
-  // ── BACKGROUND CANVAS ──
-  const canvas = document.getElementById('bg');
-  const ctx = canvas.getContext('2d');
-  let W, H;
-  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
-  resize();
-  window.addEventListener('resize', resize);
-
-  function drawCourt() {
-    ctx.clearRect(0, 0, W, H);
-    const cx = W / 2, cy = H / 2, s = Math.min(W, H) / 780;
-    ctx.save(); ctx.translate(cx, cy); ctx.scale(s, s);
-    ctx.strokeStyle = 'rgba(249,115,22,0.055)'; ctx.lineWidth = 1;
-    ctx.beginPath(); ctx.arc(0, 0, 105, 0, Math.PI * 2); ctx.stroke();
-    ctx.beginPath(); ctx.arc(0, 0, 18, 0, Math.PI * 2); ctx.stroke();
-    for (const sd of [-1, 1]) {
-      ctx.beginPath(); ctx.arc(sd * 320, 0, 238, -Math.PI / 2, Math.PI / 2, sd === -1); ctx.stroke();
-      ctx.strokeRect(sd * 320 - (sd === 1 ? 165 : 0), -82, 165, 164);
-      ctx.beginPath(); ctx.arc(sd * 225, 0, 82, 0, Math.PI * 2); ctx.stroke();
-    }
-    ctx.beginPath(); ctx.moveTo(0, -240); ctx.lineTo(0, 240); ctx.stroke();
-    ctx.strokeRect(-475, -240, 950, 480);
-    ctx.restore();
+// ── CANVAS BG ──────────────────────────────────────────
+const canvas=document.getElementById('bg'),ctx=canvas.getContext('2d');
+let W,H;
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
+resize();window.addEventListener('resize',resize);
+function drawCourt(){
+  ctx.clearRect(0,0,W,H);
+  const cx=W/2,cy=H/2,s=Math.min(W,H)/780;
+  ctx.save();ctx.translate(cx,cy);ctx.scale(s,s);
+  ctx.strokeStyle='rgba(249,115,22,0.05)';ctx.lineWidth=1;
+  ctx.beginPath();ctx.arc(0,0,105,0,Math.PI*2);ctx.stroke();
+  ctx.beginPath();ctx.arc(0,0,18,0,Math.PI*2);ctx.stroke();
+  for(const sd of[-1,1]){
+    ctx.beginPath();ctx.arc(sd*320,0,238,-Math.PI/2,Math.PI/2,sd===-1);ctx.stroke();
+    ctx.strokeRect(sd*320-(sd===1?165:0),-82,165,164);
+    ctx.beginPath();ctx.arc(sd*225,0,82,0,Math.PI*2);ctx.stroke();
   }
+  ctx.beginPath();ctx.moveTo(0,-240);ctx.lineTo(0,240);ctx.stroke();
+  ctx.strokeRect(-475,-240,950,480);
+  ctx.restore();
+}
+const orbs=Array.from({length:16},()=>({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,r:1+Math.random()*1.8,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,a:.07+Math.random()*.16}));
+function anim(){
+  ctx.clearRect(0,0,W,H);drawCourt();
+  orbs.forEach(o=>{o.x+=o.vx;o.y+=o.vy;if(o.x<0||o.x>W)o.vx*=-1;if(o.y<0||o.y>H)o.vy*=-1;ctx.beginPath();ctx.arc(o.x,o.y,o.r,0,Math.PI*2);ctx.fillStyle=`rgba(249,115,22,${o.a})`;ctx.fill()});
+  requestAnimationFrame(anim);
+}
+anim();
 
-  const orbs = Array.from({ length: 16 }, () => ({
-    x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight,
-    r: 1 + Math.random() * 1.8, vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25,
-    a: .08 + Math.random() * .18,
-  }));
+// ── PILL NAV ───────────────────────────────────────────
+const ul=document.getElementById('gnav-ul'),pill=document.getElementById('pill'),navEl=document.getElementById('gnav');
+function movePill(li){const nr=navEl.getBoundingClientRect(),lr=li.getBoundingClientRect();pill.style.left=(lr.left-nr.left)+'px';pill.style.width=lr.width+'px';pill.style.height=lr.height+'px';pill.style.top=(lr.top-nr.top)+'px'}
+const navItems=ul.querySelectorAll('li');let activeItem=navItems[0];
+setTimeout(()=>movePill(activeItem),80);
+navItems.forEach(li=>{li.querySelector('a').addEventListener('click',()=>{navItems.forEach(l=>l.classList.remove('active'));li.classList.add('active');activeItem=li;movePill(li)})});
+window.addEventListener('resize',()=>movePill(activeItem));
 
-  function anim() {
-    ctx.clearRect(0, 0, W, H); drawCourt();
-    orbs.forEach(o => {
-      o.x += o.vx; o.y += o.vy;
-      if (o.x < 0 || o.x > W) o.vx *= -1;
-      if (o.y < 0 || o.y > H) o.vy *= -1;
-      ctx.beginPath(); ctx.arc(o.x, o.y, o.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(249,115,22,${o.a})`; ctx.fill();
-    });
-    requestAnimationFrame(anim);
-  }
-  anim();
+// ── STAT COUNTERS ──────────────────────────────────────
+function animCount(el,target,suffix,dur=1200){let start=null;const step=ts=>{if(!start)start=ts;const p=Math.min((ts-start)/dur,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(e*target)+suffix;if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
+function onVisible(el,cb){const obs=new IntersectionObserver(e=>{if(e[0].isIntersecting){cb();obs.disconnect()}},{threshold:0.2});obs.observe(el)}
+onVisible(document.querySelector('.stats-strip'),()=>{animCount(document.getElementById('s1'),67,'%');animCount(document.getElementById('s2'),1240,'');animCount(document.getElementById('s3'),52,'');animCount(document.getElementById('s4'),30,'')});
 
-  // ── GOOEY NAV PILL ──
-  const ul = document.getElementById('gnav-ul');
-  const pill = document.getElementById('pill');
-  const navEl = document.getElementById('gnav');
+// ── HELPERS ────────────────────────────────────────────
+const CONF={
+  strong:{cls:'cb-strong',label:'Strong',color:'var(--orange)'},
+  lean:  {cls:'cb-lean',  label:'Lean',  color:'var(--green)'},
+  slight:{cls:'cb-slight',label:'Slight',color:'var(--yellow)'},
+  tossup:{cls:'cb-tossup',label:'Toss-up',color:'var(--muted)'},
+};
+function conf(c){return CONF[c]||CONF.tossup}
 
-  function movePill(li) {
-    const nr = navEl.getBoundingClientRect();
-    const lr = li.getBoundingClientRect();
-    pill.style.left = (lr.left - nr.left) + 'px';
-    pill.style.width = lr.width + 'px';
-    pill.style.height = lr.height + 'px';
-    pill.style.top = (lr.top - nr.top) + 'px';
-  }
+// ── TICKER CARD ────────────────────────────────────────
+function makeTickerCard(g){
+  const c=conf(g.confidence),winnerAbbr=g.winner_is==='home'?g.home_abbr:g.away_abbr,winPct=Math.max(g.home_pct,g.away_pct).toFixed(1);
+  return `<div class="tcard">
+    <div class="tcard-hd">${g.matchup}</div>
+    <div class="tcard-teams">
+      <div class="tblock"><div class="tabb${g.winner_is==='away'?' pick-winner':''}">${g.away_abbr}</div><div class="tpct">${g.away_pct.toFixed(1)}%</div></div>
+      <div style="font-size:11px;color:var(--muted2)">@</div>
+      <div class="tblock"><div class="tabb${g.winner_is==='home'?' pick-winner':''}">${g.home_abbr}</div><div class="tpct">${g.home_pct.toFixed(1)}%</div></div>
+    </div>
+    <div class="prob-bar"><div class="prob-fill" style="width:${g.home_pct.toFixed(1)}%"></div></div>
+    <div class="cbadge ${c.cls}">${c.label} &middot; ${winnerAbbr} ${winPct}%</div>
+  </div>`;
+}
 
-  const navItems = ul.querySelectorAll('li');
-  let activeItem = navItems[0];
-  setTimeout(() => movePill(activeItem), 80);
+// ── GAME TILE ──────────────────────────────────────────
+function makeGameTile(g){
+  const c=conf(g.confidence);
 
-  navItems.forEach(li => {
-    li.querySelector('a').addEventListener('click', e => {
-      navItems.forEach(l => l.classList.remove('active'));
-      li.classList.add('active');
-      activeItem = li;
-      movePill(li);
-    });
-  });
-  window.addEventListener('resize', () => movePill(activeItem));
-
-  // ── STAT COUNTERS ──
-  function animCount(el, target, suffix, dur = 1200) {
-    let start = null;
-    const step = ts => {
-      if (!start) start = ts;
-      const p = Math.min((ts - start) / dur, 1);
-      const e = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(e * target) + suffix;
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }
-
-  function onVisible(el, cb) {
-    const obs = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) { cb(); obs.disconnect(); }
-    }, { threshold: 0.2 });
-    obs.observe(el);
-  }
-
-  const statsStrip = document.querySelector('.stats-strip');
-  onVisible(statsStrip, () => {
-    animCount(document.getElementById('s1'), 67, '%');
-    animCount(document.getElementById('s2'), 1240, '');
-    animCount(document.getElementById('s3'), 52, '');
-    animCount(document.getElementById('s4'), 30, '');
-  });
-
-  // ── MINI CHART ──
-  const bars = [52, 58, 61, 58, 64, 65, 67, 66, 67];
-  const mc = document.getElementById('mchart');
-  mc.innerHTML = bars.map((v, i) => {
-    const h = Math.round(((v - 45) / 30) * 48);
-    const last = i === bars.length - 1;
-    return `<div class="mbar" style="height:${h}px;background:${last ? '#F97316' : 'rgba(255,255,255,0.1)'}"></div>`;
+  // stat rows — away on left, home on right
+  const statsHtml=(g.stats||[]).map(s=>{
+    const homeIsBetter=s.higherBetter?s.rawHome>s.rawAway:s.rawHome<s.rawAway;
+    return `<div class="stat-row">
+      <div class="sv ${homeIsBetter?'worse':'better'}">${s.away}</div>
+      <div class="sn">${s.name}</div>
+      <div class="sv2 ${homeIsBetter?'better':'worse'}">${s.home}</div>
+    </div>`;
   }).join('');
 
-  // ── GAME TICKER ──
-  const GAMES = [
-    { away: 'BOS', home: 'NYK', awayP: 42, homeP: 58, conf: 'LEAN' },
-    { away: 'LAL', home: 'GSW', awayP: 61, homeP: 39, conf: 'LEAN' },
-    { away: 'DEN', home: 'OKC', awayP: 33, homeP: 67, conf: 'STRONG' },
-    { away: 'MIA', home: 'MIL', awayP: 47, homeP: 53, conf: 'SLIGHT' },
-    { away: 'DAL', home: 'PHX', awayP: 55, homeP: 45, conf: 'SLIGHT' },
-    { away: 'CLE', home: 'IND', awayP: 71, homeP: 29, conf: 'STRONG' },
-    { away: 'SAC', home: 'MEM', awayP: 49, homeP: 51, conf: 'TOSS' },
-    { away: 'MIN', home: 'NOP', awayP: 74, homeP: 26, conf: 'STRONG' },
-  ];
-
-  function cbClass(c) { return c === 'STRONG' ? 'cb-str' : c === 'LEAN' ? 'cb-lean' : c === 'SLIGHT' ? 'cb-slight' : 'cb-toss'; }
-  function cbLabel(c) { return c === 'STRONG' ? 'Strong' : c === 'LEAN' ? 'Lean' : c === 'SLIGHT' ? 'Slight' : 'Toss-up'; }
-
-  function makeCard(g) {
-    const favP = Math.max(g.homeP, g.awayP);
-    const fav = g.homeP > g.awayP ? g.home : g.away;
-    return `<div class="gcard">
-      <div class="gcard-hd">${g.away} @ ${g.home}</div>
-      <div class="gcard-teams">
-        <div class="tblock"><div class="tabb">${g.away}</div><div class="tpct">${g.awayP}%</div></div>
-        <div class="vs-sep">vs</div>
-        <div class="tblock"><div class="tabb">${g.home}</div><div class="tpct">${g.homeP}%</div></div>
-      </div>
-      <div class="prob-bar"><div class="prob-fill" style="width:${g.homeP}%"></div></div>
-      <div class="cbadge ${cbClass(g.conf)}">${cbLabel(g.conf)} &middot; ${fav} ${favP}%</div>
-    </div>`;
+  // injuries — show up to 4, highlight those with pis > 1.0
+  function injList(outs){
+    if(!outs||!outs.length)return`<div class="inj-none">Healthy</div>`;
+    const rows=outs.slice(0,4).map(p=>{
+      const big=p.pis!=null&&p.pis>1.0;
+      return`<div class="inj-name${big?' impactful':''}">${p.name}${big?' &#9733;':''}</div>`;
+    });
+    if(outs.length>4)rows.push(`<div class="inj-name" style="color:var(--muted2)">+${outs.length-4} more</div>`);
+    return rows.join('');
   }
 
-  const ticker = document.getElementById('ticker');
-  ticker.innerHTML = [...GAMES, ...GAMES].map(makeCard).join('');
+  return `<div class="game-tile" data-conf="${g.confidence}">
+    <div class="tile-top">
+      <div class="tile-header">
+        <div class="tile-matchup-label">${g.matchup}</div>
+        <div class="cbadge ${c.cls}" style="align-self:auto;margin:0">${c.label}</div>
+      </div>
+      <div class="tile-teams">
+        <div class="team-col">
+          <div class="team-abbr-lg${g.winner_is==='away'?' pick-winner':''}">${g.away_abbr}</div>
+          <div class="team-pct-lg">${g.away_pct.toFixed(1)}%</div>
+          <div class="team-role">Away</div>
+        </div>
+        <div class="tile-center">
+          <div style="font-size:11px;color:var(--muted2)">@</div>
+          <div style="font-size:9px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.5px;margin-top:4px">Pick</div>
+          <div class="pick-team-name" style="color:${c.color}">${g.pick.split(' ').slice(-1)[0]}</div>
+        </div>
+        <div class="team-col">
+          <div class="team-abbr-lg${g.winner_is==='home'?' pick-winner':''}">${g.home_abbr}</div>
+          <div class="team-pct-lg">${g.home_pct.toFixed(1)}%</div>
+          <div class="team-role">Home</div>
+        </div>
+      </div>
+      <div class="big-bar"><div class="big-fill" style="width:${g.home_pct.toFixed(1)}%"></div></div>
+    </div>
+    <div class="tile-stats">
+      <div class="stats-header-row"><span>${g.away_abbr}</span><span>Stat</span><span>${g.home_abbr}</span></div>
+      ${statsHtml}
+    </div>
+    <div class="tile-inj">
+      <div class="inj-col"><div class="inj-label">${g.away_abbr} out</div>${injList(g.away_out)}</div>
+      <div class="inj-divider"></div>
+      <div class="inj-col"><div class="inj-label">${g.home_abbr} out</div>${injList(g.home_out)}</div>
+    </div>
+  </div>`;
+}
+
+// ── FILTER ─────────────────────────────────────────────
+function filterGames(conf,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.game-tile').forEach(t=>{
+    t.style.display=(conf==='all'||t.dataset.conf===conf)?'':'none';
+  });
+}
+
+// ── LOAD predictions.json ──────────────────────────────
+async function loadPredictions(){
+  try{
+    const res=await fetch('predictions.json');
+    if(!res.ok)throw new Error(res.status);
+    const data=await res.json();
+    renderAll(data);
+  }catch(e){
+    document.getElementById('games-grid').innerHTML='<div class="empty-state">Predictions not available yet &mdash; check back after 6 PM ET when tonight\'s model run completes.</div>';
+    document.getElementById('ticker').innerHTML='<div style="padding:1rem 2rem;color:var(--muted2);font-size:13px">No games loaded</div>';
+    console.warn('predictions.json not found or invalid:',e);
+  }
+}
+
+function renderAll(data){
+  // date formatting
+  const d=new Date(data.date+'T12:00:00');
+  const fmt=d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+  const genTime=new Date(data.generated).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+
+  // hero + meta
+  document.getElementById('hero-badge').textContent=`Live \u00B7 ${fmt}`;
+  document.getElementById('meta-games').textContent=`${data.game_count} games tonight`;
+  document.getElementById('meta-strong').textContent=`${data.strong} strong picks`;
+  document.getElementById('picks-date').textContent=`${fmt} \u00B7 ${data.game_count} games \u00B7 generated ${genTime}`;
+  document.getElementById('footer-ts').textContent=`Updated ${new Date(data.generated).toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}`;
+
+  // ticker (doubled for seamless loop)
+  document.getElementById('ticker').innerHTML=[...data.games,...data.games].map(makeTickerCard).join('');
+
+  // game grid
+  document.getElementById('games-grid').innerHTML=data.games.length
+    ?data.games.map(makeGameTile).join('')
+    :'<div class="empty-state">No games scheduled today.</div>';
+}
+
+loadPredictions();
 </script>
 </body>
 </html>
